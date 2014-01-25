@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467387338c8272640b215f1c9db28136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wall: {fileID: 100000, guid: 51b328ea56d3f73409e5c7fa38ec546d, type: 2}
+  Fish: {fileID: 100000, guid: 26b30b2b4dbbf3e48bdf13ff2a9e9c76, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
