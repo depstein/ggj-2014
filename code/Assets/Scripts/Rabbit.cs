@@ -16,7 +16,7 @@ public class Rabbit : BadObject {
 		direction.z = 0;
 		direction.Normalize();
 
-		velocity = direction * 30;
+		velocity = direction * 200;
 	}
 
 	void FixedUpdate()

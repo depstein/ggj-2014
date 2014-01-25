@@ -10,26 +10,25 @@ public class Player : MonoBehaviour {
 	private Quaternion new_direction;
 	public Transform hatParent;
 
-	private Animator _animator;
-	private GameObject _back;
-	private GameObject _front;
 	private GameObject _pupil;
 
-	public bool facingForward = true;
+
+	private Vector3 _projectileDirection;
+
+	private Animator _animator; 
+	private AnimatedCharacter _animatedCharacter; 
 
 	// Use this for initialization
 	void Start () 
 	{
 		_animator = GetComponent<Animator>();
 
-		_back = transform.Find("body/back").gameObject;
-		_front = transform.Find("body/front").gameObject;
 		_pupil = transform.Find ("body/front/pupil").gameObject;
 
 		gameObject.AddComponent<Archer>();
 		GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
 
-		ShowFront();
+		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	
 	// Update is called once per frame
@@ -46,18 +45,6 @@ public class Player : MonoBehaviour {
 
 		rigidbody2D.AddForce (diff);
 		rigidbody2D.velocity = direction - diff / 2;
-
-		_animator.SetFloat("SpeedSqr", rigidbody2D.velocity.sqrMagnitude);
-		//transform.rotation = new_direction;
-
-		if (direction.y > 0)
-		{
-			ShowBack();
-		}
-		if (direction.y < 0)
-		{
-			ShowFront();
-		}
 	}
 
 	public void PutOnHat(Object hatObj) {
@@ -92,23 +79,9 @@ public class Player : MonoBehaviour {
 
 	void DoFire()
 	{
-		Vector3 offset = new Vector3(0.12f * _projectileDirection.x, 0.12f * _projectileDirection.y, facingForward ? 0 : 1);
+		Vector3 offset = new Vector3(0.12f * _projectileDirection.x, 0.12f * _projectileDirection.y, _animatedCharacter.facingForward ? 0 : 1);
 		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
 		projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _projectileDirection);
 		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
-	}
-
-	private void ShowBack()
-	{
-		_back.SetActive(true);
-		_front.SetActive(false);
-		facingForward = false;
-	}
-
-	private void ShowFront()
-	{
-		_front.SetActive(true);
-		_back.SetActive(false);
-		facingForward = true;
 	}
 }

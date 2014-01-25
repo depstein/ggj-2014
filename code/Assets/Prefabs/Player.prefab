@@ -44,6 +44,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -444,6 +445,18 @@ MonoBehaviour:
   whatIFire: {fileID: 100000, guid: 7d33389f0da384154bd2c64cb2d9a0b9, type: 2}
   hat: {fileID: 100000, guid: a698097c89ed84666b1cf9124d180b48, type: 2}
   hatParent: {fileID: 400012}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30df268a398794979b697af3cab319b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingForward: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
