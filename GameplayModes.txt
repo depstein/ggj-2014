@@ -75,3 +75,16 @@ Penguin
 Square
   -Objects are quadrilaterals
   -Find squares like yourself
+
+Gingerbread Man
+  -Objects are hungry people/things
+  -Don't get eaten
+
+Pokemon Master
+  -Objects are weaksauce Team Rocket villains
+  -CARD BATTLE
+
+Twitter Twat
+  -Objects are Dan's Tweets
+  -Help them find fame
+
