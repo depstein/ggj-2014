@@ -82,6 +82,22 @@ public class Player : MonoBehaviour {
 		mouseDirection.Normalize ();
 	}
 
+	void CheckFire()
+	{
+		if (Input.GetMouseButtonDown (0)) {
+			_projectileDirection = mouseDirection;
+			_animator.SetTrigger("Attack");
+		}
+	}
+
+	void DoFire()
+	{
+		Vector3 offset = new Vector3(0.12f * _projectileDirection.x, 0.12f * _projectileDirection.y, facingForward ? 0 : 1);
+		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
+		projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _projectileDirection);
+		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
+	}
+
 	private void ShowBack()
 	{
 		_back.SetActive(true);

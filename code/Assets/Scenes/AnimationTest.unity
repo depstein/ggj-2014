@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 13384971}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 185676776}
   - 212: {fileID: 185676777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - 50: {fileID: 401503216}
   - 61: {fileID: 401503215}
   - 114: {fileID: 401503214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatIFire: {fileID: 100000, guid: 7d33389f0da384154bd2c64cb2d9a0b9, type: 2}
-  hat: {fileID: 100000, guid: c361cad3c26c44d02939c2bfe445c3c1, type: 2}
+  hat: {fileID: 100000, guid: a698097c89ed84666b1cf9124d180b48, type: 2}
   hatParent: {fileID: 2022972580}
 --- !u!61 &401503215
 BoxCollider2D:
@@ -454,7 +454,7 @@ Rigidbody2D:
   m_LinearDrag: .100000001
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 1
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -549,7 +549,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 478149066}
   - 212: {fileID: 478149067}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,6 +593,57 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 36e600140825b44bfae7cc4f55f23c94, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &523767728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100026, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+  m_PrefabInternal: {fileID: 190254931}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 523767729}
+  - 212: {fileID: 523767730}
+  m_Layer: 8
+  m_Name: Archer Hat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523767729
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400026, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+  m_PrefabInternal: {fileID: 190254931}
+  m_GameObject: {fileID: 523767728}
+  m_LocalRotation: {x: 0, y: 0, z: .00153340073, w: .999998868}
+  m_LocalPosition: {x: .247359931, y: -.255237073, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2022972580}
+--- !u!212 &523767730
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21200016, guid: 42fe3b2bbcda94d858f619b86cbbc020,
+    type: 2}
+  m_PrefabInternal: {fileID: 190254931}
+  m_GameObject: {fileID: 523767728}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_Sprite: {fileID: 21300000, guid: 091875801b4014400b584219aabeaf98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &722510081
 GameObject:
@@ -645,7 +696,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 746550432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1963811137}
@@ -751,7 +802,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 803663666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +831,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 850880022}
   - 212: {fileID: 850880023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: back-spots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +882,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 864211699}
   - 212: {fileID: 864211700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left-foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +961,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 907256098}
   - 212: {fileID: 907256099}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: eye-white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1063,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 973905001}
   - 212: {fileID: 973905002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1192,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1399989533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1374,7 +1425,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1691961318}
   - 212: {fileID: 1691961319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right-foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1537,7 +1588,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2017696157}
   - 212: {fileID: 2017696158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1638,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2022972580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HatLocator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,5 +1654,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -.103715129, w: .994607091}
   m_LocalPosition: {x: .177698344, y: 1.28390872, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 523767729}
   m_Father: {fileID: 478149066}
