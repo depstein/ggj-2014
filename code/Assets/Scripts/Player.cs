@@ -8,13 +8,15 @@ public class Player : MonoBehaviour {
 	private Quaternion new_direction;
 	public GameObject whatIFire;
 	public GameObject hat;
+	public Transform hatParent;
 
 	// Use this for initialization
 	void Start () 
 	{
 		var hatObj = (GameObject)Instantiate (hat);
-		hatObj.transform.parent = this.transform;
-		hatObj.transform.position = new Vector3(0.1f, 1.4f, hatObj.transform.position.z);
+		hatObj.transform.parent = hatParent;
+		hatObj.transform.localPosition = Vector3.zero;
+		hatObj.transform.localRotation = Quaternion.identity;
 	}
 	
 	// Update is called once per frame
