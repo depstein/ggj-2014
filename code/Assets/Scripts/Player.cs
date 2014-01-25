@@ -5,6 +5,7 @@ public class Player : MonoBehaviour {
 
 	private Vector2 speed = new Vector2(10, 10);
 	private Vector2 direction;
+	private Vector3 mouseDirection;
 	private Quaternion new_direction;
 	public GameObject whatIFire;
 	public GameObject hat;
@@ -35,8 +36,6 @@ public class Player : MonoBehaviour {
 	{
 		RotatePlayer();
 		CheckFire();
-
-		
 	}
 
 	void FixedUpdate()
@@ -65,6 +64,8 @@ public class Player : MonoBehaviour {
 	{
 		var horizontal = Input.GetAxis ("Horizontal") * speed.x;
 		var vertical = Input.GetAxis ("Vertical") * speed.y;
+
+		direction = new Vector2 (horizontal, vertical);
 		
 		var camera = GameObject.Find("Main Camera").camera;
 		
@@ -72,22 +73,15 @@ public class Player : MonoBehaviour {
 		
 		var mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screen.z);
 		
-		var desired_direction = mouse - screen;
-		//var current_direction = transform.rotation * Vector3.one;
-		
-		var desired_rotation = Quaternion.FromToRotation (Vector3.up, desired_direction);
-		
-		new_direction = Quaternion.RotateTowards(transform.rotation, desired_rotation, Quaternion.Angle(transform.rotation, desired_rotation) / 8);
-		
-		direction = new Vector2 (horizontal, vertical);
+		mouseDirection = mouse - screen;
+		mouseDirection.Normalize ();
 	}
 
 	void CheckFire()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			var oneDirection =  transform.rotation * Vector3.up;
-			var projectile = (GameObject)Instantiate (whatIFire, transform.position + 0.5f * oneDirection, transform.rotation);
-			projectile.rigidbody2D.velocity = 20 * oneDirection;
+			var projectile = (GameObject)Instantiate (whatIFire, transform.position + 0.5f * mouseDirection, transform.rotation);
+			projectile.rigidbody2D.velocity = 20 * mouseDirection;
 		}
 	}
 
