@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	private Vector2 speed = new Vector2(10, 10);
 	private Vector2 direction;
 	private Vector3 mouseDirection;
+	private Vector3 pupilPosition;
 	private Quaternion new_direction;
 	public GameObject whatIFire;
 	public GameObject hat;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour {
 	private Animator _animator; 
 	private GameObject _back;
 	private GameObject _front;
+	private GameObject _pupil;
 
 	// Use this for initialization
 	void Start () 
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour {
 
 		_back = transform.Find("body/back").gameObject;
 		_front = transform.Find("body/front").gameObject;
+		_pupil = transform.Find ("body/front/pupil").gameObject;
 
 		ShowFront();
 	}
@@ -34,7 +37,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		RotatePlayer();
+		SetMovementDirection();
 		CheckFire();
 	}
 
@@ -60,7 +63,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void RotatePlayer()
+	void SetMovementDirection()
 	{
 		var horizontal = Input.GetAxis ("Horizontal") * speed.x;
 		var vertical = Input.GetAxis ("Vertical") * speed.y;
