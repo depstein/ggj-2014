@@ -19,8 +19,8 @@ public class Player : MonoBehaviour {
 	{
 		var hatObj = (GameObject)Instantiate (hat);
 		hatObj.transform.parent = hatParent;
-		hatObj.transform.localPosition = Vector3.zero;
-		hatObj.transform.localRotation = Quaternion.identity;
+		hatObj.transform.localPosition = hat.transform.localPosition;
+		hatObj.transform.localRotation = hat.transform.localRotation;
 
 		_animator = GetComponent<Animator>();
 
