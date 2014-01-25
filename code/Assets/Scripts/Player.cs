@@ -16,7 +16,6 @@ public class Player : MonoBehaviour {
 	private Vector3 _projectileDirection;
 
 	private Animator _animator; 
-	private AnimatedCharacter _animatedCharacter; 
 
 	// Use this for initialization
 	void Start () 
@@ -27,8 +26,6 @@ public class Player : MonoBehaviour {
 
 		gameObject.AddComponent<Archer>();
 		GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
-
-		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	
 	// Update is called once per frame
@@ -47,9 +44,11 @@ public class Player : MonoBehaviour {
 		rigidbody2D.velocity = direction - diff / 2;
 	}
 
-	public void PutOnHat(Object hatObj) {
+	public void PutOnHat(GameObject hatObj) {
 		GameObject hat = (GameObject)Instantiate (hatObj);
 		hat.transform.parent = hatParent;
+		hat.transform.localPosition = hatObj.transform.localPosition;
+		hat.transform.localRotation = hatObj.transform.localRotation;
 	}
 
 	void SetMovementDirection()
@@ -67,21 +66,5 @@ public class Player : MonoBehaviour {
 		
 		mouseDirection = mouse - screen;
 		mouseDirection.Normalize ();
-	}
-
-	void CheckFire()
-	{
-		if (Input.GetMouseButtonDown (0)) {
-			_projectileDirection = mouseDirection;
-			_animator.SetTrigger("Attack");
-		}
-	}
-
-	void DoFire()
-	{
-		Vector3 offset = new Vector3(0.12f * _projectileDirection.x, 0.12f * _projectileDirection.y, _animatedCharacter.facingForward ? 0 : 1);
-		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
-		projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _projectileDirection);
-		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
 	}
 }

@@ -17,7 +17,7 @@ public class AnimatedCharacter : MonoBehaviour {
 		ShowFront();
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
 		Vector3 velocity = rigidbody2D.velocity;
 		_animator.SetFloat("SpeedSqr", velocity.sqrMagnitude);
