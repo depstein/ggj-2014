@@ -621,7 +621,7 @@ AnimationClip:
         tangentMode: -1125909764
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path: right-foot
+    path: feet/right-foot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1232,7 +1232,7 @@ AnimationClip:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path: left-foot
+    path: feet/left-foot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2487,7 +2487,7 @@ AnimationClip:
         tangentMode: 184549392
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path: left-foot
+    path: feet/left-foot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2544,7 +2544,7 @@ AnimationClip:
         tangentMode: -1
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path: right-foot
+    path: feet/right-foot
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -2623,7 +2623,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.x
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2657,7 +2657,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.y
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2691,7 +2691,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.z
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3305,7 +3305,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.w
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3919,7 +3919,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.z
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4533,7 +4533,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.y
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5147,7 +5147,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.x
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5848,7 +5848,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.w
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6462,7 +6462,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.z
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7076,7 +7076,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.y
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7690,7 +7690,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.x
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7724,7 +7724,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.z
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7758,7 +7758,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.y
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7792,7 +7792,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.x
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12811,7 +12811,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: localEulerAnglesBaked.x
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12845,7 +12845,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: localEulerAnglesBaked.y
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12879,7 +12879,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: localEulerAnglesBaked.z
-    path: left-foot
+    path: feet/left-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -13000,7 +13000,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: localEulerAnglesBaked.x
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -13034,7 +13034,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: localEulerAnglesBaked.y
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -13068,7 +13068,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: localEulerAnglesBaked.z
-    path: right-foot
+    path: feet/right-foot
     classID: 4
     script: {fileID: 0}
   - curve:
