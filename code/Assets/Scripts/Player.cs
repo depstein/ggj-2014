@@ -3,12 +3,14 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	private Vector2 speed = new Vector2(50, 50);
+	private Vector2 speed = new Vector2(10, 10);
 	private Vector2 direction;
 	private Quaternion new_direction;
 	public GameObject whatIFire;
 	public GameObject hat;
 	public Transform hatParent;
+
+	private Animator _animator; 
 
 	// Use this for initialization
 	void Start () 
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour {
 		hatObj.transform.parent = hatParent;
 		hatObj.transform.localPosition = Vector3.zero;
 		hatObj.transform.localRotation = Quaternion.identity;
+
+		_animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -24,6 +28,8 @@ public class Player : MonoBehaviour {
 	{
 		RotatePlayer();
 		CheckFire();
+
+		
 	}
 
 	void FixedUpdate()
@@ -35,7 +41,8 @@ public class Player : MonoBehaviour {
 		rigidbody2D.AddForce (diff);
 		rigidbody2D.velocity = direction - diff / 2;
 
-		transform.rotation = new_direction;
+		_animator.SetFloat("SpeedSqr", rigidbody2D.velocity.sqrMagnitude);
+		//transform.rotation = new_direction;
 	}
 
 	void RotatePlayer()
