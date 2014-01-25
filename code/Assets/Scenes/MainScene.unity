@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efd678e55c3a8240825c28290d26f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIFire: {fileID: 100000, guid: 7d33389f0da384154bd2c64cb2d9a0b9, type: 2}
+  whatIFire: {fileID: 100000, guid: 3a06cc44211bb43808f8506605119cad, type: 2}
   hat: {fileID: 100000, guid: c361cad3c26c44d02939c2bfe445c3c1, type: 2}
   hatParent: {fileID: 1232495119}
 --- !u!95 &513889048
@@ -872,6 +872,10 @@ Prefab:
       propertyPath: m_FixedAngle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+      propertyPath: whatIFire
+      value: 
+      objectReference: {fileID: 100000, guid: 3a06cc44211bb43808f8506605119cad, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
   m_RootGameObject: {fileID: 513889043}

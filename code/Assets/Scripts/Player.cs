@@ -85,6 +85,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			var projectile = (GameObject)Instantiate (whatIFire, transform.position + 0.5f * mouseDirection, transform.rotation);
 			projectile.rigidbody2D.velocity = 20 * mouseDirection;
+			//projectile.transform.rotation = Quaternion.LookRotation(mouseDirection);
 		}
 	}
 
