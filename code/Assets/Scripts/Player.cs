@@ -7,10 +7,14 @@ public class Player : MonoBehaviour {
 	private Vector2 direction;
 	private Quaternion new_direction;
 	public GameObject whatIFire;
+	public GameObject hat;
 
 	// Use this for initialization
 	void Start () 
 	{
+		var hatObj = (GameObject)Instantiate (hat);
+		hatObj.transform.parent = this.transform;
+		hatObj.transform.position = new Vector3(0.1f, 1.4f, hatObj.transform.position.z);
 	}
 	
 	// Update is called once per frame
