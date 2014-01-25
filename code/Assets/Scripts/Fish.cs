@@ -37,11 +37,18 @@ public class Fish : MonoBehaviour {
 		}
 
 		velocity = (target - transform.position);
-
 	}
+
+
 
 	void FixedUpdate()
 	{
 		rigidbody2D.velocity = velocity * (nextTime - Time.time) / 0.5f;
+	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		Debug.Log("Colidiu");
+		Destroy (this.gameObject);
 	}
 }
