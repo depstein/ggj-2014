@@ -28,6 +28,8 @@ public class Player : MonoBehaviour {
 		var desired_direction = mouse - screen;
 		//var current_direction = transform.rotation * Vector3.one;
 
+
+
 		var desired_rotation = Quaternion.FromToRotation (Vector3.up, desired_direction);
 
 		new_direction = Quaternion.RotateTowards(transform.rotation, desired_rotation, Quaternion.Angle(transform.rotation, desired_rotation) / 8);
