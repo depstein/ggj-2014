@@ -13,8 +13,8 @@ public class Camera : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GameObject player = GameObject.Find ("Player");
-
-		direction = transform.position + (player.transform.position - transform.position) / 2;
+		
+		direction = transform.position + ((player.transform.position + 2 * (player.transform.rotation * Vector3.up) - transform.position) / 2);
 	}
 
 	void FixedUpdate()
