@@ -6,7 +6,7 @@ Archer
   -Objects turn to animals/enemies you hunt
   -Try to hit animals with arrows by predicting their movement
   
-Bartender/Brewer/Chef/Baker
+Bartender/Brewer/Chef/Baker/PotionMaker
   -Objects in environment turn to ingredients/recipes?
   -Goal is to get specific ingredients to mix them together and make a specific drink
 
@@ -34,6 +34,44 @@ Painter/decorator
   -Objects turn to paint cans and things to be painted
   -Paint objects in environment the correct colors
 
+Warewolves
+  -Objects turn to wares and things to sell it to
+  -Try to pick up wares and sell them to other objects
+
+Wizard
+  -Objects turn to mana creatures and targets
+  -Kill/harvest mana creatures to get mana, use mana to _______ targets.
+
 Wood cutter
   -Objects turn to trees
   -Cut down trees, avoid getting hit when they fall
+
+
+--- Hendo Silly Fun Time Ideas ---
+
+Game maker
+  -Objects turn into all of the other ideas
+  -Collect crazy ideas to make a game
+
+Treasure hunter
+  -Objects turn to treasure trest - only one has treasure
+  -Find the treasure
+
+Pariah
+  -Objects turn into angry mob
+  -Don't get caught
+
+Defenestrator
+  -Objects are windows
+  -BREAK THROUGH THEM
+
+Mystery Man
+  -Steal one of the other ideas at random, but don't show the normal hat?
+
+Penguin
+  -Objects are polar bears
+  -Slide away from them
+
+Square
+  -Objects are quadrilaterals
+  -Find squares like yourself
