@@ -48,7 +48,11 @@ public class Fish : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		Debug.Log("Colidiu");
-		Destroy (this.gameObject);
+		if (other.gameObject.GetComponent<Projectile> () != null) {
+						Debug.Log ("Colidiu");
+						Game.game.health += 10f;
+						Destroy (this.gameObject);
+						Destroy (other.gameObject);
+		}
 	}
 }
