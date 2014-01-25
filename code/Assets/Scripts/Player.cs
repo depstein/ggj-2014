@@ -16,6 +16,9 @@ public class Player : MonoBehaviour {
 	private GameObject _back;
 	private GameObject _front;
 	private GameObject _pupil;
+	private Transform _mouth;
+
+	private Vector3 _projectileDirection;
 
 	// Use this for initialization
 	void Start () 
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour {
 		_back = transform.Find("body/back").gameObject;
 		_front = transform.Find("body/front").gameObject;
 		_pupil = transform.Find ("body/front/pupil").gameObject;
+		_mouth = transform.Find("body/front/mouth");
 
 		ShowFront();
 	}
@@ -83,9 +87,15 @@ public class Player : MonoBehaviour {
 	void CheckFire()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			var projectile = (GameObject)Instantiate (whatIFire, transform.position + 0.5f * mouseDirection, transform.rotation);
-			projectile.rigidbody2D.velocity = 20 * mouseDirection;
+			_projectileDirection = mouseDirection;
+			_animator.SetTrigger("Attack");
 		}
+	}
+
+	void DoFire()
+	{
+		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
+		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
 	}
 
 	private void ShowBack()
