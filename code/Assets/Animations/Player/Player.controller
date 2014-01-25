@@ -28,13 +28,13 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110200000}
   m_DstState: {fileID: 110256414}
-  m_TransitionDuration: .25
+  m_TransitionDuration: .554198325
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
     m_ConditionEvent: 
     m_EventTreshold: 0
-    m_ExitTime: 2
+    m_ExitTime: 1.79999995
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -46,13 +46,13 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110256414}
   m_DstState: {fileID: 110200000}
-  m_TransitionDuration: .25
+  m_TransitionDuration: .27162838
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
     m_ConditionEvent: 
     m_EventTreshold: 0
-    m_ExitTime: 1
+    m_ExitTime: .800000012
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0

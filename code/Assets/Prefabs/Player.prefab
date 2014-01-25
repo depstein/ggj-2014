@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400000}
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   m_Layer: 0
@@ -120,8 +119,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: -.0323654115, w: .999476135}
-  m_LocalPosition: {x: .573260307, y: -.858012497, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .589763522, y: -.829393983, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -131,7 +130,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: -.0310821068, w: .999516845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.589763463, y: -.829393983, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -237,20 +236,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6efd678e55c3a8240825c28290d26f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIFire: {fileID: 100000, guid: 7d33389f0da384154bd2c64cb2d9a0b9, type: 2}
-  hat: {fileID: 100000, guid: a698097c89ed84666b1cf9124d180b48, type: 2}
-  hatParent: {fileID: 400012}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
