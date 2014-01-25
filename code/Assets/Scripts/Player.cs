@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 	private GameObject _pupil;
 	private Transform _mouth;
 
+	private bool facingForward = true;
+
 	private Vector3 _projectileDirection;
 
 	// Use this for initialization
@@ -87,7 +89,9 @@ public class Player : MonoBehaviour {
 	void CheckFire()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.12f * mouseDirection, transform.rotation);
+			Vector3 offset = new Vector3(0.12f * mouseDirection.x, 0.12f * mouseDirection.y, facingForward ? 0 : 1);
+			var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + offset, transform.rotation);
+
 			projectile.rigidbody2D.velocity = 20 * mouseDirection;
 			projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, mouseDirection);
 			_projectileDirection = mouseDirection;
@@ -105,11 +109,13 @@ public class Player : MonoBehaviour {
 	{
 		_back.SetActive(true);
 		_front.SetActive(false);
+		facingForward = false;
 	}
 
 	private void ShowFront()
 	{
 		_front.SetActive(true);
 		_back.SetActive(false);
+		facingForward = true;
 	}
 }
