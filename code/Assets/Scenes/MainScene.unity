@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 195032621}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - 61: {fileID: 379994731}
   - 50: {fileID: 379994730}
   - 114: {fileID: 379994729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - 50: {fileID: 513889046}
   - 61: {fileID: 513889045}
   - 114: {fileID: 513889047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - 61: {fileID: 531208335}
   - 50: {fileID: 531208334}
   - 114: {fileID: 531208333}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - 61: {fileID: 603374594}
   - 50: {fileID: 603374593}
   - 114: {fileID: 603374592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 615483151}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,7 +787,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 710358150}
   - 212: {fileID: 710358149}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: back-spots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +890,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 745111416}
   - 212: {fileID: 745111417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: eye-white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 775167460}
   - 212: {fileID: 775167461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +998,7 @@ GameObject:
   - 61: {fileID: 856739496}
   - 50: {fileID: 856739495}
   - 114: {fileID: 856739494}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,7 +1092,7 @@ GameObject:
   - 61: {fileID: 904539434}
   - 50: {fileID: 904539433}
   - 114: {fileID: 904539432}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1385,7 @@ GameObject:
   - 61: {fileID: 1159253954}
   - 50: {fileID: 1159253953}
   - 114: {fileID: 1159253952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1555,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1232495119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HatLocator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1636,7 +1636,7 @@ GameObject:
   - 61: {fileID: 1296824021}
   - 50: {fileID: 1296824020}
   - 114: {fileID: 1296824019}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1727,7 +1727,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1303505045}
   - 212: {fileID: 1303505044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Archer Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1781,7 +1781,7 @@ GameObject:
   - 61: {fileID: 1475825400}
   - 50: {fileID: 1475825399}
   - 114: {fileID: 1475825398}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1912,7 +1912,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1731279167}
   - 212: {fileID: 1731279166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right-foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1964,7 +1964,7 @@ GameObject:
   - 4: {fileID: 1837921694}
   - 212: {fileID: 1837921693}
   - 114: {fileID: 1837921692}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BadObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2066,7 +2066,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1882679596}
   - 212: {fileID: 1882679597}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left-foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2117,7 +2117,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1911675181}
   - 212: {fileID: 1911675182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2168,7 +2168,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1979394750}
   - 212: {fileID: 1979394751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2218,7 +2218,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2088626720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2248,7 +2248,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2094271185}
   - 212: {fileID: 2094271186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
