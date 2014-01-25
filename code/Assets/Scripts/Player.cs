@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	private Vector2 speed = new Vector2(50, 50);
 	private Vector2 direction;
 	private Quaternion new_direction;
+	public GameObject whatIFire;
 
 	// Use this for initialization
 	void Start () 
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour {
 	void CheckFire()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			Debug.Log ("here!");
+			Instantiate (whatIFire, transform.position, transform.rotation);
 		}
 	}
 }
