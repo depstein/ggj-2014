@@ -5,37 +5,29 @@ public class Player : MonoBehaviour {
 
 	private Vector2 speed = new Vector2(10, 10);
 	private Vector2 direction;
-	private Vector3 mouseDirection;
+	public Vector3 mouseDirection;
 	private Vector3 pupilPosition;
 	private Quaternion new_direction;
-	public GameObject whatIFire;
-	public GameObject hat;
 	public Transform hatParent;
 
-	private Animator _animator; 
+	private Animator _animator;
 	private GameObject _back;
 	private GameObject _front;
 	private GameObject _pupil;
-	private Transform _mouth;
 
-	private bool facingForward = true;
-
-	private Vector3 _projectileDirection;
+	public bool facingForward = true;
 
 	// Use this for initialization
 	void Start () 
 	{
-		var hatObj = (GameObject)Instantiate (hat);
-		hatObj.transform.parent = hatParent;
-		hatObj.transform.localPosition = hat.transform.localPosition;
-		hatObj.transform.localRotation = hat.transform.localRotation;
-
 		_animator = GetComponent<Animator>();
 
 		_back = transform.Find("body/back").gameObject;
 		_front = transform.Find("body/front").gameObject;
 		_pupil = transform.Find ("body/front/pupil").gameObject;
-		_mouth = transform.Find("body/front/mouth");
+
+		gameObject.AddComponent<Archer>();
+		GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
 
 		ShowFront();
 	}
@@ -44,7 +36,6 @@ public class Player : MonoBehaviour {
 	void Update () 
 	{
 		SetMovementDirection();
-		CheckFire();
 	}
 
 	void FixedUpdate()
@@ -69,6 +60,11 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public void PutOnHat(Object hatObj) {
+		GameObject hat = (GameObject)Instantiate (hatObj);
+		hat.transform.parent = hatParent;
+	}
+
 	void SetMovementDirection()
 	{
 		var horizontal = Input.GetAxis ("Horizontal") * speed.x;
@@ -84,25 +80,6 @@ public class Player : MonoBehaviour {
 		
 		mouseDirection = mouse - screen;
 		mouseDirection.Normalize ();
-	}
-
-	void CheckFire()
-	{
-		if (Input.GetMouseButtonDown (0)) {
-			Vector3 offset = new Vector3(0.12f * mouseDirection.x, 0.12f * mouseDirection.y, facingForward ? 0 : 1);
-			var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + offset, transform.rotation);
-
-			projectile.rigidbody2D.velocity = 20 * mouseDirection;
-			projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, mouseDirection);
-			_projectileDirection = mouseDirection;
-			_animator.SetTrigger("Attack");
-		}
-	}
-
-	void DoFire()
-	{
-		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
-		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
 	}
 
 	private void ShowBack()
