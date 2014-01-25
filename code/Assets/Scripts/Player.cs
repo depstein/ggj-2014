@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 	public Transform hatParent;
 
 	private Animator _animator; 
+	private GameObject _back;
+	private GameObject _front;
 
 	// Use this for initialization
 	void Start () 
@@ -21,6 +23,11 @@ public class Player : MonoBehaviour {
 		hatObj.transform.localRotation = Quaternion.identity;
 
 		_animator = GetComponent<Animator>();
+
+		_back = transform.Find("body/back").gameObject;
+		_front = transform.Find("body/front").gameObject;
+
+		ShowFront();
 	}
 	
 	// Update is called once per frame
@@ -43,6 +50,15 @@ public class Player : MonoBehaviour {
 
 		_animator.SetFloat("SpeedSqr", rigidbody2D.velocity.sqrMagnitude);
 		//transform.rotation = new_direction;
+
+		if (direction.y > 0)
+		{
+			ShowBack();
+		}
+		if (direction.y < 0)
+		{
+			ShowFront();
+		}
 	}
 
 	void RotatePlayer()
@@ -73,5 +89,17 @@ public class Player : MonoBehaviour {
 			var projectile = (GameObject)Instantiate (whatIFire, transform.position + 0.5f * oneDirection, transform.rotation);
 			projectile.rigidbody2D.velocity = 20 * oneDirection;
 		}
+	}
+
+	private void ShowBack()
+	{
+		_back.SetActive(true);
+		_front.SetActive(false);
+	}
+
+	private void ShowFront()
+	{
+		_front.SetActive(true);
+		_back.SetActive(false);
 	}
 }
