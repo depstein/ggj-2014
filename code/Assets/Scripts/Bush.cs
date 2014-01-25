@@ -13,11 +13,10 @@ public class Bush : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
+	void OnCollisionStay2D(Collision2D other)
 	{
 		if (other.gameObject.GetComponent<Rabbit> () != null) {
-			Debug.Log ("FISH");
-			Game.game.health -= 2f;
+			Game.game.health -= 2f * Time.deltaTime;
 		}
 	}
 }
