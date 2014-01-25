@@ -16,23 +16,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		var horizontal = Input.GetAxis ("Horizontal") * speed.x;
-		var vertical = Input.GetAxis ("Vertical") * speed.y;
-
-		var camera = GameObject.Find("Main Camera").camera;
-
-		var screen = camera.WorldToScreenPoint (transform.position);
-
-		var mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screen.z);
-
-		var desired_direction = mouse - screen;
-		//var current_direction = transform.rotation * Vector3.one;
-
-		var desired_rotation = Quaternion.FromToRotation (Vector3.up, desired_direction);
-
-		new_direction = Quaternion.RotateTowards(transform.rotation, desired_rotation, Quaternion.Angle(transform.rotation, desired_rotation) / 8);
-
-		direction = new Vector2 (horizontal, vertical);
+		RotatePlayer();
+		CheckFire();
 	}
 
 	void FixedUpdate()
@@ -47,5 +32,31 @@ public class Player : MonoBehaviour {
 		transform.rotation = new_direction;
 	}
 
-	
+	void RotatePlayer()
+	{
+		var horizontal = Input.GetAxis ("Horizontal") * speed.x;
+		var vertical = Input.GetAxis ("Vertical") * speed.y;
+		
+		var camera = GameObject.Find("Main Camera").camera;
+		
+		var screen = camera.WorldToScreenPoint (transform.position);
+		
+		var mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screen.z);
+		
+		var desired_direction = mouse - screen;
+		//var current_direction = transform.rotation * Vector3.one;
+		
+		var desired_rotation = Quaternion.FromToRotation (Vector3.up, desired_direction);
+		
+		new_direction = Quaternion.RotateTowards(transform.rotation, desired_rotation, Quaternion.Angle(transform.rotation, desired_rotation) / 8);
+		
+		direction = new Vector2 (horizontal, vertical);
+	}
+
+	void CheckFire()
+	{
+		if (Input.GetMouseButtonDown (0)) {
+			Debug.Log ("here!");
+		}
+	}
 }

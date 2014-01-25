@@ -1,0 +1,39 @@
+Appraisers
+  -Objects turn to various items
+  -Try to guess how much object is worth
+
+Archer
+  -Objects turn to animals/enemies you hunt
+  -Try to hit animals with arrows by predicting their movement
+  
+Bartender/Brewer/Chef/Baker
+  -Objects in environment turn to ingredients/recipes?
+  -Goal is to get specific ingredients to mix them together and make a specific drink
+
+Bug catcher/Fisherman
+  -Objects turn to insects/fish
+  -Run around the environment trying to catch them with your net/fishing rod
+
+Bricklayer/Landscaper
+  -Objects turn to brick types (or plants)
+  -Get specific brick types (or plant types) and lay them in a specific pattern
+
+Gardener
+  -Objects turn to plants
+  -Keep them alive by watering/fertilizing them
+
+Janitor
+  -Objects turn to messes
+  -Clean up messes in correct manner to remove it
+
+Milkman
+  -Objects turn to milk containers
+  -Try to deliver correct number to milk glasses to various houses
+
+Painter/decorator
+  -Objects turn to paint cans and things to be painted
+  -Paint objects in environment the correct colors
+
+Wood cutter
+  -Objects turn to trees
+  -Cut down trees, avoid getting hit when they fall
