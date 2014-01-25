@@ -47,5 +47,10 @@ public class Player : MonoBehaviour {
 		transform.rotation = new_direction;
 	}
 
+	void OnMouseDown()
+	{
+		Debug.Log ("here");
+	}
+
 	
 }
