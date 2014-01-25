@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
 	void CheckFire()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.1f * mouseDirection, transform.rotation);
+			var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.12f * mouseDirection, transform.rotation);
 			projectile.rigidbody2D.velocity = 20 * mouseDirection;
 			projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, mouseDirection);
 			_projectileDirection = mouseDirection;
