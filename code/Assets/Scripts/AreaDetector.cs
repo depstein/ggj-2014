@@ -3,6 +3,8 @@ using System.Collections;
 
 public class AreaDetector : MonoBehaviour {
 
+	public event PlayerEnteredDelegate PlayerEntered;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,6 +17,9 @@ public class AreaDetector : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-
+		if (other.gameObject == Player.player) {
+			Debug.Log("Player hit me");
+			PlayerEntered(Player.player.transform.position);
+		}
 	}
 }
