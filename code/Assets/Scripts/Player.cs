@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	public Transform hatParent;
 
 	private GameObject _pupil;
+	private GameObject _hat;
 
 
 	private Vector3 _projectileDirection;
@@ -23,8 +24,6 @@ public class Player : MonoBehaviour {
 		_animator = GetComponent<Animator>();
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
-
-		Camera.player = gameObject;
 
 		//gameObject.AddComponent<Shepherd>();
 		//GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
@@ -47,7 +46,11 @@ public class Player : MonoBehaviour {
 	}
 
 	public void PutOnHat(GameObject hatObj) {
+		if (_hat != null) {
+			Destroy (_hat);
+		}
 		GameObject hat = (GameObject)Instantiate (hatObj);
+		_hat = hat;
 		hat.collider2D.enabled = false;
 		hat.transform.parent = hatParent;
 		hat.transform.localPosition = hatObj.transform.localPosition;

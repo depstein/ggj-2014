@@ -27,12 +27,12 @@ public class GameArea : MonoBehaviour {
 
 	public void RemoveGoodObject(GameObject objectToBeAdded)
 	{
-		goodObjects.Add (objectToBeAdded);
+		goodObjects.Remove (objectToBeAdded);
 	}
 	
 	public void RemoveBadObject(GameObject objectToBeAdded)
 	{
-		badObjects.Add (objectToBeAdded);
+		badObjects.Remove (objectToBeAdded);
 	}
 
 	public void TurnGoodThingsTo(GameObject goodThing)
@@ -42,10 +42,8 @@ public class GameArea : MonoBehaviour {
 			GameObject good = (GameObject)Instantiate (goodThing);
 			good.transform.position = obj.transform.position;
 			good.transform.rotation = obj.transform.rotation;
-			newGood.Add (good);
 			Destroy (obj);
 		}
-		goodObjects = newGood;
 	}
 
 	public void TurnBadThingsTo(GameObject badThing)
@@ -55,10 +53,8 @@ public class GameArea : MonoBehaviour {
 			GameObject bad = (GameObject)Instantiate (badThing);
 			bad.transform.position = obj.transform.position;
 			bad.transform.rotation = obj.transform.rotation;
-			newBad.Add (bad);
 			Destroy (obj);
 		}
-		badObjects = newBad;
 	}
 
 	// Use this for initialization
