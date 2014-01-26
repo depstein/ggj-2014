@@ -50,7 +50,12 @@ public class Player : MonoBehaviour {
 		rigidbody2D.velocity = direction - diff / 2;
 	}
 
-	public void PutOnHat(GameObject hatObj, GameObject beardObj = null, GameObject handObj = null) {
+	public void PutOnHat(GameObject hatObj)
+	{
+		PutOnHat (hatObj, null, null);
+	}
+
+	public void PutOnHat(GameObject hatObj, GameObject beardObj, GameObject handObj) {
 		if (_hat != null) {
 			Destroy (_hat);
 		}
@@ -96,7 +101,7 @@ public class Player : MonoBehaviour {
 
 		direction = new Vector2 (horizontal, vertical);
 		
-		var camera = Camera.camera.gameObject.camera;
+		var camera = Camera.camcorder.gameObject.camera;
 		
 		var screen = camera.WorldToScreenPoint (transform.position);
 		

@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class Camera : MonoBehaviour {
-	public static Camera camera;
-
+	public static Camera camcorder;
 
 	private Vector2 direction;
 
