@@ -68,10 +68,14 @@ public class GameArea {
 		List<GameObject> newGood = new List<GameObject> ();
 		foreach (GameObject obj in goodObjects) {
 			GameObject good = GameObject.Instantiate (goodThing) as GameObject;
+			good.GetComponent<AreaObject>().gameArea = obj.GetComponent<AreaObject>().gameArea;
 			good.transform.position = obj.transform.position;
 			good.transform.rotation = obj.transform.rotation;
+			newGood.Add (good);
 			GameObject.Destroy (obj);
 		}
+
+		goodObjects.AddRange (newGood);
 	}
 
 	public void TurnBadThingsTo(GameObject badThing)
@@ -79,10 +83,14 @@ public class GameArea {
 		List<GameObject> newBad = new List<GameObject> ();
 		foreach (GameObject obj in badObjects) {
 			GameObject bad = GameObject.Instantiate (badThing) as GameObject;
+			bad.GetComponent<AreaObject>().gameArea = obj.GetComponent<AreaObject>().gameArea;
 			bad.transform.position = obj.transform.position;
 			bad.transform.rotation = obj.transform.rotation;
+			newBad.Add (bad);
 			GameObject.Destroy (obj);
 		}
+
+		badObjects.AddRange (newBad);
 	}
 
 	public void AddRandomHat()
