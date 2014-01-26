@@ -5,6 +5,7 @@ public class Hat : AreaObject {
 	public static readonly string[] HAT_TYPES = {"ArcherHat", "ShepherdStaff"};
 	public const float SURVIVAL_TIME = 15f;
 	private float timeAlive;
+	public bool hatOnHead = false;
 
 	public static string RandomHat()
 	{
@@ -18,10 +19,12 @@ public class Hat : AreaObject {
 	
 	// Update is called once per frame
 	void Update () {
-		timeAlive -= Time.deltaTime;
+		if (!hatOnHead) {
+			timeAlive -= Time.deltaTime;
 
-		if (timeAlive <= 0) {
-			Destroy(this.gameObject);
+			if (timeAlive <= 0) {
+				Destroy (this.gameObject);
+			}
 		}
 	}
 
@@ -31,7 +34,7 @@ public class Hat : AreaObject {
 			if(other.gameObject.GetComponent<Profession>() != null) {
 				Destroy(other.gameObject.GetComponent<Profession>());
 			}
-			if(this.gameObject.name.Contains ("ArcherHat")) { //TODO: this will fail when we start cloning things (aka making them dynamically)
+			if(this.gameObject.name.Contains ("ArcherHat")) {
 					WorldMode.ChangeModeTo(other.gameObject, PlayerMode.archer, Player.player.gameArea);
 			} else if (this.gameObject.name.Contains ("ShepherdStaff")) {
 				WorldMode.ChangeModeTo(other.gameObject, PlayerMode.shepherd, Player.player.gameArea);

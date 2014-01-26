@@ -2,24 +2,19 @@
 using System.Collections;
 
 public class Archer : Profession {
-
-	private Animator _animator;
-	private Player _player;
+	
 	private Transform _mouth;
 	public GameObject whatIFire;
 	private Vector3 _projectileDirection;
-	private AnimatedCharacter _animatedCharacter; 
 	private int ammoCount = 0;
 
 	// Use this for initialization
-	void Start () {
-		_animator = GetComponent<Animator>();
-		_player = GetComponent <Player> ();
+	protected override void Start () {
+		base.Start ();
 		_mouth = transform.Find("body/front/mouth");
 
 		_player.PutOnHat(Resources.Load<GameObject>("ArcherHat"));
 		whatIFire = (GameObject)Resources.Load("Arrow", typeof(GameObject));
-		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	
 	// Update is called once per frame

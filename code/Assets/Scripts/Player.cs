@@ -91,6 +91,11 @@ public class Player : AreaObject {
 			_hand.transform.localPosition = handObj.transform.localPosition;
 			_hand.transform.localRotation = handObj.transform.localRotation;
 		}
+
+		Hat[] hats = GetComponentsInChildren<Hat> ();
+		foreach (Hat h in hats) {
+			h.hatOnHead = true;
+		}
 	}
 
 	void SetMovementDirection()
