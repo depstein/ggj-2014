@@ -16,7 +16,7 @@ public class GameGenerator : MonoBehaviour
 	{
 		Wall.WallTemplate = WallTemplate;
 		Wall.DebugMaterialTemplate = DebugMaterialTemplate;
-		var manager = new LevelManager ();
+		var manager = new WorldManager ();
 
 		var area = manager.PickRandomArea ();
 
