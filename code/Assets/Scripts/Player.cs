@@ -30,7 +30,7 @@ public class Player : AreaObject {
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
 
-		gameObject.AddComponent<Profession> ();
+		WorldMode.ChangeModeTo (gameObject, PlayerMode.shepherd, gameArea);
 	}
 	
 	// Update is called once per frame
