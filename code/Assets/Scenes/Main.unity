@@ -148,7 +148,8 @@ MonoBehaviour:
   PlayerTemplate: {fileID: 100004, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
   SheepTemplate: {fileID: 100000, guid: b1d63d60002765742b6fa2a003d1d8b1, type: 2}
   WallTemplate: {fileID: 100000, guid: 51b328ea56d3f73409e5c7fa38ec546d, type: 2}
-  DebugMaterialTemplate: {fileID: 0}
+  DebugMaterialTemplate: {fileID: 2100000, guid: 5994b43f21d484745abad77193e610f8,
+    type: 2}
 --- !u!33 &737190518
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -382,6 +383,10 @@ Prefab:
       propertyPath: SheepTemplate
       value: 
       objectReference: {fileID: 100000, guid: b1d63d60002765742b6fa2a003d1d8b1, type: 2}
+    - target: {fileID: 11400000, guid: 3e47c34c083926148947e3c890443931, type: 2}
+      propertyPath: DebugMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 5994b43f21d484745abad77193e610f8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e47c34c083926148947e3c890443931, type: 2}
   m_RootGameObject: {fileID: 737190516}
