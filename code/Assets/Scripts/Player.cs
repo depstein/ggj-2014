@@ -9,9 +9,13 @@ public class Player : MonoBehaviour {
 	private Vector3 pupilPosition;
 	private Quaternion new_direction;
 	public Transform hatParent;
+	public Transform handParent;
+	public Transform beardParent;
 
 	private GameObject _pupil;
 	private GameObject _hat;
+	private GameObject _beard;
+	private GameObject _hand;
 
 
 	private Vector3 _projectileDirection;
@@ -24,9 +28,6 @@ public class Player : MonoBehaviour {
 		_animator = GetComponent<Animator>();
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
-
-		//gameObject.AddComponent<Shepherd>();
-		//GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
 	}
 	
 	// Update is called once per frame
@@ -45,16 +46,43 @@ public class Player : MonoBehaviour {
 		rigidbody2D.velocity = direction - diff / 2;
 	}
 
-	public void PutOnHat(GameObject hatObj) {
+	public void PutOnHat(GameObject hatObj, GameObject beardObj = null, GameObject handObj = null) {
 		if (_hat != null) {
 			Destroy (_hat);
 		}
-		GameObject hat = (GameObject)Instantiate (hatObj);
-		_hat = hat;
-		hat.collider2D.enabled = false;
-		hat.transform.parent = hatParent;
-		hat.transform.localPosition = hatObj.transform.localPosition;
-		hat.transform.localRotation = hatObj.transform.localRotation;
+		if (_beard != null) {
+			Destroy (_beard);
+		}
+		if (_hand != null) {
+			Destroy (_hand);
+		}
+		if (hatObj != null) {
+			_hat = (GameObject)Instantiate (hatObj);
+			if (_hat.collider2D != null) {
+				_hat.collider2D.enabled = false;
+			}
+			_hat.transform.parent = hatParent;
+			_hat.transform.localPosition = hatObj.transform.localPosition;
+			_hat.transform.localRotation = hatObj.transform.localRotation;
+		}
+		if (beardObj != null) {
+			_beard = (GameObject)Instantiate (beardObj);
+			if(_beard.collider2D != null) {
+				_beard.collider2D.enabled = false;
+			}
+			_beard.transform.parent = beardParent;
+			_beard.transform.localPosition = beardObj.transform.localPosition;
+			_beard.transform.localRotation = beardObj.transform.localRotation;
+		}
+		if (handObj != null) {
+			_hand = (GameObject)Instantiate (handObj);
+			if(_hand.collider2D != null) {
+				_hand.collider2D.enabled = false;
+			}
+			_hand.transform.parent = handParent;
+			_hand.transform.localPosition = handObj.transform.localPosition;
+			_hand.transform.localRotation = handObj.transform.localRotation;
+		}
 	}
 
 	void SetMovementDirection()
