@@ -1,18 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pen : MonoBehaviour {
-
-	void Awake() {
-		//TODO: remove when we stop using MainScene.
-	}
+public class Pen : AreaObject {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log ("COLLIDED");
 		Sheep s = other.gameObject.GetComponent<Sheep> ();
-		if (s != null) {
+		if (s != null && !s.isInRegion && s.gameArea == Player.player.gameArea) {
 			Debug.Log ("COLLIDED SHEEP");
+			Game.game.points++;
 			s.isInRegion = true;
 		}
 	}

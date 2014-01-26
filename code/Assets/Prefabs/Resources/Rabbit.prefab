@@ -471,6 +471,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6845ab2748a2749bb1dab48aeca11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sitting: 0
+  nextTime: -1
+  target: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
