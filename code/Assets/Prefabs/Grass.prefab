@@ -8,9 +8,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
+  - 23: {fileID: 2300000}
+  - 33: {fileID: 3300000}
   m_Layer: 0
-  m_Name: Main
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,27 +24,38 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -15.4186811, y: -.871257544, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &11400000
-MonoBehaviour:
+--- !u!23 &2300000
+Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d97491af803f1d94daeb85d18bdf9c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerTemplate: {fileID: 100004, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
-  WallTemplate: {fileID: 100000, guid: 51b328ea56d3f73409e5c7fa38ec546d, type: 2}
-  TreeTemplate: {fileID: 100000, guid: b582724905b64b74aa1183b02cf1daf2, type: 2}
-  GrassTemplate: {fileID: 100000, guid: d98defdd39d2265498198206c55d1a5a, type: 2}
-  DebugMaterialTemplate: {fileID: 2100000, guid: 5994b43f21d484745abad77193e610f8,
-    type: 2}
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 90dcbe137aba13f4690b5b45516973b6, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &3300000
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
