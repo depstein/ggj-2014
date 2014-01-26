@@ -13,7 +13,6 @@ public class Archer : Profession {
 		base.Start ();
 		_mouth = transform.Find("body/front/mouth");
 
-		_player.PutOnHat(Resources.Load<GameObject>("ArcherHat"));
 		whatIFire = (GameObject)Resources.Load("Arrow", typeof(GameObject));
 	}
 	

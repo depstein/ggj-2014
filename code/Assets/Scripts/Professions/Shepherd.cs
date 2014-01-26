@@ -6,8 +6,7 @@ public class Shepherd : Profession {
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
-		
-		_player.PutOnHat(null, Resources.Load<GameObject>("ShepherdBeard"), Resources.Load<GameObject>("ShepherdStaff"));
+
 	}
 	
 	// Update is called once per frame

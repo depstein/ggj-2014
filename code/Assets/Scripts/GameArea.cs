@@ -19,14 +19,14 @@ public class GameArea {
 		areaObj.gameArea = this;
 
 		for (int i=0; i<Random.Range (8,10); i++) {
-			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("BadObject"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
+			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("Rabbit"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
 			areaObj = bad.GetComponent<AreaObject>();
 			areaObj.gameArea = this;
 			AddBadObject(bad);
 		}
 
 		for (int i=0; i<Random.Range (8,10); i++) {
-			GameObject good = GameObject.Instantiate (Resources.Load<GameObject>("GoodObject"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
+			GameObject good = GameObject.Instantiate (Resources.Load<GameObject>("Quiver"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
 			areaObj = good.GetComponent<AreaObject>();
 			areaObj.gameArea = this;
 			AddGoodObject(good);
@@ -91,10 +91,5 @@ public class GameArea {
 		}
 
 		badObjects.AddRange (newBad);
-	}
-
-	public void AddRandomHat()
-	{
-		GameObject.Instantiate (Resources.Load<GameObject>(Hat.RandomHat()), myArea.GetSpawnLocation(), Quaternion.identity);
 	}
 }

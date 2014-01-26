@@ -20,8 +20,7 @@ public class Chef : MonoBehaviour {
 		_animator = GetComponent<Animator>();
 		_player = GetComponent <Player> ();
 		_mouth = transform.Find("body/front/mouth");
-		
-		_player.PutOnHat(Resources.Load<GameObject>("ArcherHat"));
+
 		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	
