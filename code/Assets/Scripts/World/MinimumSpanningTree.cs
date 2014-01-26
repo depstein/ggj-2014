@@ -21,7 +21,7 @@ public class MinimumSpanningTree {
 		
 		List<Edge> mst = new List<Edge> ();
 		connected.Add(edges [0].a);
-		for(int i = 0;i < edges.Count; i++) 
+		for(int i = 0; i < edges.Count; i++) 
 		{
 			if(connected.Contains(edges[i].a) != connected.Contains(edges[i].b)) 
 			{
