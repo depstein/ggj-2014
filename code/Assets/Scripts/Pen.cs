@@ -3,6 +3,12 @@ using System.Collections;
 
 public class Pen : MonoBehaviour {
 
+	void Awake() {
+		//TODO: remove when we stop using MainScene.
+		GameArea.gameArea = new GameArea (null);
+		GameArea.gameArea.gameAreaTarget = this.gameObject;
+	}
+
 	// Use this for initialization
 	void Start () {
 	

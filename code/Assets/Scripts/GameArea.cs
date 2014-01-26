@@ -10,12 +10,11 @@ public class GameArea {
 	public List<GameObject> badObjects;
 
 	public GameArea(IArea area) {
-		if (gameArea == null) {
-			gameArea = this;
-				}
 		goodObjects = new List<GameObject> ();
 		badObjects = new List<GameObject> ();
-
+		if (gameArea == null) {
+			gameArea = this;
+		}
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)
