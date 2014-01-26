@@ -11,9 +11,8 @@ public class Sheep : GoodObject {
 	Vector3 velocity;
 	
 	// Use this for initialization
-	protected override void Start ()
+	void Start ()
 	{
-		base.Start ();
 	}
 	
 	// Update is called once per frame

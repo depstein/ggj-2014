@@ -5,8 +5,7 @@ public class Rabbit : BadObject {
 	Vector3 target;
 	Vector3 velocity;
 	// Use this for initialization
-	protected override void Start () {
-		base.Start ();
+	void Start () {
 		target = gameArea.gameAreaTarget.transform.position;
 	}
 	

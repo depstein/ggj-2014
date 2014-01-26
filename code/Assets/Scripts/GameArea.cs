@@ -15,6 +15,10 @@ public class GameArea {
 		if (gameArea == null) {
 			gameArea = this;
 		}
+
+		for (int i=0; i<Random.Range (8,10); i++) {
+
+		}
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)
