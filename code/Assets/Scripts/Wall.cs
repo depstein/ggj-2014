@@ -6,6 +6,8 @@ public class Wall
 {
 	public static GameObject WallTemplate;
 	public static Material DebugMaterialTemplate;
+	public static bool EnableDebug = false;
+
 	public static GameObject Create(Vector3 start, Vector3 end)
 	{
 		var delta = end - start;
@@ -18,8 +20,11 @@ public class Wall
 		
 		return wall;
 	}
+
 	public static GameObject CreateDebug(Vector3 start, Vector3 end)
 	{
+		if (!EnableDebug) return null;
+
 		var wall = Create (start, end);
 		wall.transform.localScale = new Vector3(0.1f, wall.transform.localScale.y, wall.transform.localScale.z);
 		wall.transform.position = new Vector3 (wall.transform.position.x, wall.transform.position.y, 20);
