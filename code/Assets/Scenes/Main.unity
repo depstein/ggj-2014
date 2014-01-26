@@ -109,6 +109,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 45327a1d1fd9ee64fb04061730421e93, type: 2}
+      propertyPath: AreaDetectorTemplate
+      value: 
+      objectReference: {fileID: 100000, guid: 4463a391ca01eaf4d80913978dfda770, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45327a1d1fd9ee64fb04061730421e93, type: 2}
   m_RootGameObject: {fileID: 1965793468}
@@ -277,6 +281,7 @@ MonoBehaviour:
   WallTemplate: {fileID: 100000, guid: 51b328ea56d3f73409e5c7fa38ec546d, type: 2}
   TreeTemplate: {fileID: 100000, guid: b582724905b64b74aa1183b02cf1daf2, type: 2}
   GrassTemplate: {fileID: 100000, guid: d98defdd39d2265498198206c55d1a5a, type: 2}
+  AreaDetectorTemplate: {fileID: 100000, guid: 4463a391ca01eaf4d80913978dfda770, type: 2}
   DebugMaterialTemplate: {fileID: 2100000, guid: 5994b43f21d484745abad77193e610f8,
     type: 2}
 --- !u!4 &1965793470
