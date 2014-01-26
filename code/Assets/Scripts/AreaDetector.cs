@@ -3,7 +3,8 @@ using System.Collections;
 
 public class AreaDetector : MonoBehaviour {
 
-	public event PlayerEnteredDelegate PlayerEntered;
+	public delegate void PlayerHitDelegate(Vector3 position);
+	public event PlayerHitDelegate PlayerHit;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +16,27 @@ public class AreaDetector : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
+	private bool m_inside = false;
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject == Player.player) {
-			Debug.Log("Player hit me");
-			PlayerEntered(Player.player.transform.position);
+		if (other.gameObject.GetComponent<Player>() == Player.player) {
+			if (!m_inside)
+			{
+				m_inside = true;
+				Debug.Log("Player hit me");
+				if (PlayerHit != null)
+					PlayerHit(Player.player.transform.position);
+			}
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.gameObject.GetComponent<Player> () == Player.player) {
+			if (m_inside)
+			{
+				m_inside = false;
+			}
 		}
 	}
 }
