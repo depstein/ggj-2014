@@ -12,6 +12,7 @@ public class GameArea : MonoBehaviour {
 	void Awake() {
 		gameArea = this;
 		goodObjects = new List<GameObject> ();
+		badObjects = new List<GameObject> ();
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)
