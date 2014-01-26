@@ -9,6 +9,12 @@ public class AreaEntry
 	public bool create = true;
 }
 
+public class RemovedWall
+{
+	public Vector3 left;
+	public Vector3 right;
+}
+
 public delegate void AreaWallDelegate(int wall_id, Vector3 start, Vector3 end);
 
 public class Area
@@ -28,9 +34,14 @@ public class Area
 
 	public Vector3 position { get { return m_position; } } 
 	
-	public void UseWall(int wall)
+	public RemovedWall UseWall(int wall)
 	{
 		(m_entries [wall] as AreaEntry).create = false;
+		return new RemovedWall ()
+		{
+			left = NodePosition(wall),
+			right = NodePosition(wall + 1)
+		};
 	}
 	
 	public Area(Vector3 position)

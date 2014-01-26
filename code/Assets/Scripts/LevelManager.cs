@@ -16,11 +16,9 @@ public class LevelManager
 		foreach (Area area in m_areas) {
 			area.CreateWalls ();
 		}
-	}
-
-	public void MakePathway(Vector3 start_left, Vector3 start_right, Vector3 end_left, Vector3 end_right)
-	{
-
+		foreach (Trail trail in m_trails) {
+			trail.CreateWalls ();
+		}
 	}
 
 	private void IntersectLineWithArea(out int wall_id, Vector3 line_position, Vector3 line_vector, Area target)
@@ -80,14 +78,16 @@ public class LevelManager
 			var connection_position = e.a.position;
 			var connection_vector = e.b.position - e.a.position;
 
-			int wall_a = 0;
-			IntersectLineWithArea(out wall_a, e.b.position, e.a.position - e.b.position, e.a);
+			int wall_a_id = 0;
+			IntersectLineWithArea(out wall_a_id, e.b.position, e.a.position - e.b.position, e.a);
 
-			int wall_b = 0;
-			IntersectLineWithArea(out wall_b, e.a.position, e.b.position - e.a.position, e.b);
+			int wall_b_id = 0;
+			IntersectLineWithArea(out wall_b_id, e.a.position, e.b.position - e.a.position, e.b);
 			
-			e.a.UseWall(wall_a);
-			e.b.UseWall(wall_b);
+			var wall_a = e.a.UseWall(wall_a_id);
+			var wall_b = e.b.UseWall(wall_b_id);
+			
+			m_trails.Add(new Trail(wall_a.left, wall_a.right, wall_b.right, wall_b.left));
 
 			Wall.CreateDebug(e.a.position, e.b.position);
 		}
@@ -96,5 +96,6 @@ public class LevelManager
 		
 	}
 
+	private List<Trail> m_trails = new List<Trail> ();
 	private List<Area> m_areas = new List<Area> ();
 }
