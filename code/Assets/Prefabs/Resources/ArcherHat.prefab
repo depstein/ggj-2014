@@ -9,8 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 60: {fileID: 6000000}
-  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: ArcherHat
   m_TagString: Untagged
@@ -29,61 +27,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!60 &6000000
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: .745000005, y: -.305000007}
-      - {x: .745000005, y: -.224999994}
-      - {x: .704999983, y: -.144999996}
-      - {x: .664999962, y: -.0649999976}
-      - {x: .724999964, y: -.0350000001}
-      - {x: .86500001, y: .0949999988}
-      - {x: 1.04499996, y: .254999995}
-      - {x: 1.05499995, y: .305000007}
-      - {x: 1.05499995, y: .465000004}
-      - {x: 1.02499998, y: .494999975}
-      - {x: .894999981, y: .484999985}
-      - {x: .754999995, y: .414999992}
-      - {x: .675000012, y: .324999988}
-      - {x: .63499999, y: .314999998}
-      - {x: .545000017, y: .264999986}
-      - {x: .494999975, y: .204999998}
-      - {x: .354999989, y: .405000001}
-      - {x: .194999993, y: .574999988}
-      - {x: .13499999, y: .61500001}
-      - {x: .0449999981, y: .61500001}
-      - {x: -.424999982, y: .224999994}
-      - {x: -.594999969, y: .0749999955}
-      - {x: -.604999959, y: .0249999985}
-      - {x: -.944999993, y: -.174999997}
-      - {x: -1.05499995, y: -.36499998}
-      - {x: -1.05499995, y: -.444999993}
-      - {x: -.964999974, y: -.494999975}
-      - {x: -.664999962, y: -.564999998}
-      - {x: -.344999999, y: -.61500001}
-      - {x: .284999996, y: -.61500001}
-      - {x: .375, y: -.604999959}
-      - {x: .604999959, y: -.504999995}
-      - {x: .734999955, y: -.375}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b980110fa7344a0d8f7689cb8d97edc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -30,7 +30,26 @@ public class Player : AreaObject {
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
 
-		WorldMode.ChangeModeTo (gameObject, PlayerMode.shepherd, gameArea);
+		gameObject.AddComponent<Shepherd> ();
+		gameObject.AddComponent<Archer> ();
+
+
+		GameObject hatObj = (GameObject)Resources.Load ("ArcherHat");
+		GameObject beardObj = (GameObject)Resources.Load ("ShepherdBeard");
+		GameObject handObj = (GameObject)Resources.Load ("ShepherdStaff");
+
+		_hat = (GameObject)Instantiate (hatObj);
+		_hat.transform.parent = hatParent;
+		_hat.transform.localPosition = hatObj.transform.localPosition;
+		_hat.transform.localRotation = hatObj.transform.localRotation;
+		_beard = (GameObject)Instantiate (beardObj);
+		_beard.transform.parent = beardParent;
+		_beard.transform.localPosition = beardObj.transform.localPosition;
+		_beard.transform.localRotation = beardObj.transform.localRotation;
+		_hand = (GameObject)Instantiate (handObj);
+		_hand.transform.parent = handParent;
+		_hand.transform.localPosition = handObj.transform.localPosition;
+		_hand.transform.localRotation = handObj.transform.localRotation;
 	}
 	
 	// Update is called once per frame
@@ -47,55 +66,6 @@ public class Player : AreaObject {
 
 		rigidbody2D.AddForce (diff);
 		rigidbody2D.velocity = direction - diff / 2;
-	}
-
-	public void PutOnHat(GameObject hatObj)
-	{
-		PutOnHat (hatObj, null, null);
-	}
-
-	public void PutOnHat(GameObject hatObj, GameObject beardObj, GameObject handObj) {
-		if (_hat != null) {
-			Destroy (_hat);
-		}
-		if (_beard != null) {
-			Destroy (_beard);
-		}
-		if (_hand != null) {
-			Destroy (_hand);
-		}
-		if (hatObj != null) {
-			_hat = (GameObject)Instantiate (hatObj);
-			if (_hat.collider2D != null) {
-				_hat.collider2D.enabled = false;
-			}
-			_hat.transform.parent = hatParent;
-			_hat.transform.localPosition = hatObj.transform.localPosition;
-			_hat.transform.localRotation = hatObj.transform.localRotation;
-		}
-		if (beardObj != null) {
-			_beard = (GameObject)Instantiate (beardObj);
-			if(_beard.collider2D != null) {
-				_beard.collider2D.enabled = false;
-			}
-			_beard.transform.parent = beardParent;
-			_beard.transform.localPosition = beardObj.transform.localPosition;
-			_beard.transform.localRotation = beardObj.transform.localRotation;
-		}
-		if (handObj != null) {
-			_hand = (GameObject)Instantiate (handObj);
-			if(_hand.collider2D != null) {
-				_hand.collider2D.enabled = false;
-			}
-			_hand.transform.parent = handParent;
-			_hand.transform.localPosition = handObj.transform.localPosition;
-			_hand.transform.localRotation = handObj.transform.localRotation;
-		}
-
-		Hat[] hats = GetComponentsInChildren<Hat> ();
-		foreach (Hat h in hats) {
-			h.hatOnHead = true;
-		}
 	}
 
 	void SetMovementDirection()
