@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Camera : MonoBehaviour {
 
+	public static GameObject player;
 	Vector2 direction;
 
 	// Use this for initialization
@@ -12,7 +13,7 @@ public class Camera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject player = GameObject.Find ("Player");
+		if (player == null) return;
 		
 		direction = transform.position + ((player.transform.position + 2 * (player.transform.rotation * Vector3.up) - transform.position) / 2);
 	}

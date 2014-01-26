@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
 
+		Camera.player = gameObject;
+
 		//gameObject.AddComponent<Shepherd>();
 		//GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
 	}

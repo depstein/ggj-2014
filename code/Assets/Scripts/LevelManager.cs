@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class LevelManager
 {
-	public static float grid_size = Area.max_radius * 5f;
+	public static int grid_count = 4;
+	public static float grid_size = Area.max_radius * 3f;
 	
 	public void AddArea(Vector3 position)
 	{
@@ -19,6 +20,11 @@ public class LevelManager
 		foreach (Trail trail in m_trails) {
 			trail.CreateWalls ();
 		}
+	}
+
+	public Area PickRandomArea()
+	{
+		return m_areas [Random.Range (0, m_areas.Count)];
 	}
 
 	private void IntersectLineWithArea(out int wall_id, Vector3 line_position, Vector3 line_vector, Area target)
@@ -55,15 +61,15 @@ public class LevelManager
 
 	public LevelManager()
 	{
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < grid_count; i++)
 		{
-			Wall.CreateDebug(new Vector3(i * grid_size, 0, 0), new Vector3(i * grid_size, grid_size * 10, 0));
-			Wall.CreateDebug(new Vector3(0, i * grid_size, 0), new Vector3(grid_size * 10, i * grid_size, 0));
+			Wall.CreateDebug(new Vector3(i * grid_size, 0, 0), new Vector3(i * grid_size, grid_size * grid_count, 0));
+			Wall.CreateDebug(new Vector3(0, i * grid_size, 0), new Vector3(grid_size * grid_count, i * grid_size, 0));
 		}
 		
-		for (int x = 0; x < 10; x++) 
+		for (int x = 0; x < grid_count; x++) 
 		{
-			for (int y = 0; y < 10; y++) 
+			for (int y = 0; y < grid_count; y++) 
 			{
 				AddArea(new Vector3(
 					Random.Range(x * grid_size + Area.max_radius, (x + 1) * grid_size - Area.max_radius),

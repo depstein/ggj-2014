@@ -19,8 +19,8 @@ public delegate void AreaWallDelegate(int wall_id, Vector3 start, Vector3 end);
 
 public class Area
 {
-	public static float max_radius = 50.0f;
-	public static float min_radius = 20.0f;
+	public static float max_radius = 30.0f;
+	public static float min_radius = 15.0f;
 	public static float max_radius_variance = 1.5f;
 	public static float min_radius_variance = 0.5f;
 	
@@ -69,6 +69,35 @@ public class Area
 		{
 			Wall.CreateDebug(m_position, NodePosition(i));
 		}
+	}
+
+	public Vector3 RandomSpot()
+	{
+		Vector3 result = Vector3.zero;
+
+		float angle = Random.Range (0f, total_angle);
+
+		var direction = (Quaternion.AngleAxis (angle, Vector3.back) * Vector3.up).normalized;
+
+		Wall.CreateDebug (position, position + direction * 5f);
+
+		for(int i = 0; i < m_points; i++)
+		{
+			var this_angle = At (i).angle;
+			var next_angle = (i + 1 == m_points) ? total_angle : At(i + 1).angle;
+			if (this_angle <= angle && angle < next_angle)
+			{
+				var before = NodePosition(i);
+				var after = NodePosition(i + 1);
+				var distance_along = (angle - this_angle) / (next_angle - this_angle);
+				var edge = before + distance_along * (after - before);
+				var offset = edge - position;
+				result = position + Random.value * (offset);
+				break;
+			}
+		}
+
+		return result;
 	}
 	
 	public void CreateWalls()
