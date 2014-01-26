@@ -11,7 +11,7 @@ public class Game : MonoBehaviour {
 	void Awake() {
 		game = this;
 		health = 30f;
-		hatTimer = HATS_EVERY;
+		hatTimer = 0;
 	}
 
 	// Use this for initialization
