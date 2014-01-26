@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : AreaObject {
 	public static Player player;
 
 	private Vector2 speed = new Vector2(10, 10);
@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
 		_animator = GetComponent<Animator>();
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
+
+		gameObject.AddComponent<Profession> ();
 	}
 	
 	// Update is called once per frame

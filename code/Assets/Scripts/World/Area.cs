@@ -34,6 +34,8 @@ public class Area : IArea
 
 	public Vector3 position { get { return m_position; } } 
 
+	public GameArea gameArea { get { return m_gameArea; } }
+
 	public event PlayerEnteredDelegate PlayerEntered;
 	public event PlayerExitedDelegate PlayerExisted;
 	

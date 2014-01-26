@@ -6,7 +6,7 @@ public enum PlayerMode {
 }
 
 public class WorldMode {
-	private static PlayerMode mode;
+	private static PlayerMode mode = PlayerMode.normal;
 	public static PlayerMode Mode { get { return mode; } }
 
 	public static void ChangeModeTo(GameObject player, PlayerMode newMode, GameArea gameArea) {
