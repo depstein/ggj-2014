@@ -25,6 +25,16 @@ public class GameArea : MonoBehaviour {
 		badObjects.Add (objectToBeAdded);
 	}
 
+	public void RemoveGoodObject(GameObject objectToBeAdded)
+	{
+		goodObjects.Add (objectToBeAdded);
+	}
+	
+	public void RemoveBadObject(GameObject objectToBeAdded)
+	{
+		badObjects.Add (objectToBeAdded);
+	}
+
 	// Use this for initialization
 	void Start () {
 	
