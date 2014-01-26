@@ -12,13 +12,17 @@ public class GameGenerator : MonoBehaviour
 	private GameObject player_object;
 	private Player player;
 
-	void Start () 
+	void Awake()
 	{
 		Wall.WallTemplate = WallTemplate;
 		Wall.DebugMaterialTemplate = DebugMaterialTemplate;
-		var manager = new WorldManager ();
+		WorldManager.worldManager = new WorldManager ();
+	}
 
-		var area = manager.PickRandomArea ();
+	void Start () 
+	{
+		WorldManager.worldManager.Load ();
+		var area = WorldManager.worldManager.PickRandomArea ();
 
 		player_object = Instantiate (PlayerTemplate, area.position, Quaternion.identity) as GameObject;
 		player = player_object.GetComponent<Player> ();
@@ -27,10 +31,5 @@ public class GameGenerator : MonoBehaviour
 
 		var player_position = player_object.transform.position;
 		camera.transform.position = new Vector3(player_position.x, player_position.y, camera.transform.position.z);
-
-		for (int i = 0; i < 10; i++) {
-			var spot = area.RandomSpot();
-			Instantiate (SheepTemplate, spot, Quaternion.identity);
-		}
 	}
 }

@@ -63,6 +63,11 @@ public class Area : IArea
 			Wall.CreateDebug(m_position, NodePosition(i));
 		}
 	}
+
+	public void Load()
+	{
+		m_gameArea = new GameArea (this);
+	}
 	
 	public RemovedWall UseWall(int wall)
 	{
@@ -157,4 +162,5 @@ public class Area : IArea
 	private Vector3 m_position;
 	private int m_points;
 	private List<AreaEntry> m_entries = new List<AreaEntry>();
+	private GameArea m_gameArea;
 }
