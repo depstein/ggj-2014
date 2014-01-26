@@ -30,7 +30,7 @@ public class Player : AreaObject {
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
 
-		gameObject.AddComponent<Profession> ();
+		WorldMode.ChangeModeTo (gameObject, PlayerMode.shepherd, gameArea);
 	}
 	
 	// Update is called once per frame
@@ -90,6 +90,11 @@ public class Player : AreaObject {
 			_hand.transform.parent = handParent;
 			_hand.transform.localPosition = handObj.transform.localPosition;
 			_hand.transform.localRotation = handObj.transform.localRotation;
+		}
+
+		Hat[] hats = GetComponentsInChildren<Hat> ();
+		foreach (Hat h in hats) {
+			h.hatOnHead = true;
 		}
 	}
 

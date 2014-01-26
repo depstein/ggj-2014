@@ -3,21 +3,11 @@ using System.Collections;
 
 public class Shepherd : Profession {
 	
-	private Animator _animator;
-	private Player _player;
-	private Transform _mouth;
-	public GameObject whatIFire;
-	private Vector3 _projectileDirection;
-	private AnimatedCharacter _animatedCharacter; 
-	
 	// Use this for initialization
-	void Start () {
-		_animator = GetComponent<Animator>();
-		_player = GetComponent <Player> ();
-		_mouth = transform.Find("body/front/mouth");
+	protected override void Start () {
+		base.Start ();
 		
 		_player.PutOnHat(null, Resources.Load<GameObject>("ShepherdBeard"), Resources.Load<GameObject>("ShepherdStaff"));
-		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	
 	// Update is called once per frame
@@ -34,8 +24,7 @@ public class Shepherd : Profession {
 
 	void Shout()
 	{
-
-		foreach (GameObject obj in gameArea.goodObjects) {
+		foreach (GameObject obj in _player.gameArea.goodObjects) {
 			Vector3 diff = obj.transform.position - transform.position;
 			if (diff.magnitude < 5)
 			{
