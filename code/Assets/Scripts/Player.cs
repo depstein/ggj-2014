@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
 		_animator = GetComponent<Animator>();
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
+
+		gameObject.AddComponent<Profession> ();
 	}
 	
 	// Update is called once per frame
