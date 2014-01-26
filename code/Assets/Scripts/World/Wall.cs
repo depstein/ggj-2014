@@ -30,7 +30,7 @@ public class Wall
 		GameObject.Instantiate (TreeTemplate, position, Quaternion.identity);
 	}
 
-	private static void CreateDetector(Vector3 start, Vector3 end)
+	public static void CreateDetector(Vector3 start, Vector3 end)
 	{
 		var delta = end - start;
 		var position = start + delta / 2;
