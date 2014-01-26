@@ -9,18 +9,21 @@ public class Enemy : BadObject {
 	private float fireTime = FIRE_FREQUENCY;
 
 	private Animator _animator;
+	protected AnimatedCharacter _animatedCharacter;
 
 	// Use this for initialization
 	protected void Start () {
 		_animator = GetComponent<Animator>();
+		_animatedCharacter = GetComponent<AnimatedCharacter>();
 
 		_mouth = transform.Find("body/front/mouth");
 		
-		whatIFire = (GameObject)Resources.Load("Arrow", typeof(GameObject));
+		whatIFire = (GameObject)Resources.Load("EnemyArrow", typeof(GameObject));
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+		base.Update ();
 		fireTime -= Time.deltaTime;
 
 		if (fireTime <= 0) {
