@@ -34,7 +34,6 @@ public class Shepherd : MonoBehaviour {
 
 	void Shout()
 	{
-		Debug.Log ("SHOUT!");
 		foreach (GameObject obj in GameArea.gameArea.goodObjects) {
 			Vector3 diff = obj.transform.position - transform.position;
 			if (diff.magnitude < 5)
