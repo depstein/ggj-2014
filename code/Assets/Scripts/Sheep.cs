@@ -13,7 +13,6 @@ public class Sheep : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		GameArea.gameArea.AddGoodObject (this.gameObject);
 	}
 	
 	// Update is called once per frame
