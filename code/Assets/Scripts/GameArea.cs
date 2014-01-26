@@ -12,6 +12,7 @@ public class GameArea {
 	public GameArea(IArea area) {
 		goodObjects = new List<GameObject> ();
 		badObjects = new List<GameObject> ();
+
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)
