@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
+	public static Player player;
 
 	private Vector2 speed = new Vector2(10, 10);
 	private Vector2 direction;
@@ -28,8 +29,6 @@ public class Player : MonoBehaviour {
 		_animator = GetComponent<Animator>();
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
-
-		Camera.player = gameObject;
 
 		//gameObject.AddComponent<Shepherd>();
 		//GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
@@ -97,7 +96,7 @@ public class Player : MonoBehaviour {
 
 		direction = new Vector2 (horizontal, vertical);
 		
-		var camera = GameObject.Find("Main Camera").camera;
+		var camera = Camera.camera.gameObject.camera;
 		
 		var screen = camera.WorldToScreenPoint (transform.position);
 		

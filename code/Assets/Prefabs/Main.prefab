@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: GameArea
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.254298717, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35,10 +35,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f8b3427111efc44bf61d355fffcc93, type: 3}
+  m_Script: {fileID: 11500000, guid: d97491af803f1d94daeb85d18bdf9c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameAreaTarget: {fileID: 0}
+  PlayerTemplate: {fileID: 100004, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+  WallTemplate: {fileID: 100000, guid: 51b328ea56d3f73409e5c7fa38ec546d, type: 2}
+  DebugMaterialTemplate: {fileID: 2100000, guid: 5994b43f21d484745abad77193e610f8,
+    type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

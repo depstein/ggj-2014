@@ -1,7 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hat : AreaObject {
+public class Hat : MonoBehaviour {
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
@@ -11,14 +20,10 @@ public class Hat : AreaObject {
 			}
 			switch(this.gameObject.name) { //TODO: this will fail when we start cloning things (aka making them dynamically)
 				case "Archer Hat":
-					other.gameObject.AddComponent<Archer>();
-					gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("archer-good-pickup"));
-					gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Rabbit"));
+					WorldMode.ChangeModeTo(other.gameObject, PlayerMode.archer);
 				    break;
 				case "shepherd-staff":
-					other.gameObject.AddComponent<Shepherd>();
-					gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("sheep"));
-					//GameArea.gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Rabbit"));
+				WorldMode.ChangeModeTo(other.gameObject, PlayerMode.shepherd);
 					break;
 			}
 			Destroy (this.gameObject);

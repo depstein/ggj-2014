@@ -3,14 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameArea {
+	
+	public static GameArea gameArea;
 	public GameObject gameAreaTarget;
 	public List<GameObject> goodObjects;
 	public List<GameObject> badObjects;
 
 	public GameArea(IArea area) {
-		Debug.Log ("GameAreaMade");
 		goodObjects = new List<GameObject> ();
 		badObjects = new List<GameObject> ();
+		if (gameArea == null) {
+			gameArea = this;
+		}
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)
