@@ -12,4 +12,14 @@ public class Pen : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log ("COLLIDED");
+		Sheep s = other.gameObject.GetComponent<Sheep> ();
+		if (s != null) {
+			Debug.Log ("COLLIDED SHEEP");
+			s.isInRegion = true;
+		}
+	}
 }
