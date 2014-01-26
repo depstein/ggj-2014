@@ -6,8 +6,8 @@ public class WorldManager
 {
 	public static WorldManager worldManager;
 	public static GameObject GrassTemplate;
-	public static int grid_count = 4;
-	public static float grid_size = Area.max_radius * 3f;
+	public static int grid_count = 5;
+	public static float grid_size = Area.max_radius * 2.5f;
 
 	public void Load()
 	{

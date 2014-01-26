@@ -19,16 +19,16 @@ public delegate void AreaWallDelegate(int wall_id, Vector3 start, Vector3 end);
 
 public class Area : IArea
 {
-	public static float max_radius = 30.0f;
-	public static float min_radius = 15.0f;
-	public static float max_radius_variance = 1.5f;
-	public static float min_radius_variance = 0.5f;
+	public static float max_radius = 25.0f;
+	public static float min_radius = 10.0f;
+	public static float max_radius_variance = 2.0f;
+	public static float min_radius_variance = 1 / max_radius_variance;
 	
-	public static float max_angle_variance = 1.5f;
-	public static float min_angle_variance = 1f / 1.5f;
+	public static float max_angle_variance = 1.3f;
+	public static float min_angle_variance = 1f / max_angle_variance;
 	
 	public static int min_points = 8;
-	public static int max_points = 24;
+	public static int max_points = 12;
 	
 	public static float total_angle = 360f;
 
