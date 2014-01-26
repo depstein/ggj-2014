@@ -5,8 +5,10 @@ using System.Collections.Generic;
 public class Wall
 {
 	public static GameObject WallTemplate;
+	public static GameObject TreeTemplate;
 	public static Material DebugMaterialTemplate;
 	public static bool EnableDebug = false;
+	public static float tree_radius = 2.0f;
 
 	public static GameObject CreateSolid(Vector3 start, Vector3 end)
 	{
@@ -21,9 +23,33 @@ public class Wall
 		return wall;
 	}
 
+	private static void CreateTree(Vector3 position)
+	{
+		position = new Vector3 (position.x, position.y, position.y);
+		GameObject.Instantiate (TreeTemplate, position, Quaternion.identity);
+	}
+
 	public static GameObject Create(Vector3 start, Vector3 end)
 	{
-		return CreateSolid (start, end);
+		if (end.y < start.y) 
+		{
+			var tmp = start;
+			start = end;
+			end = tmp;
+		}
+		var distance = Vector3.Distance(start, end);
+		var steps = Mathf.CeilToInt (distance / tree_radius);
+		var direction = (end - start).normalized;
+
+		var current = start;
+		for (int i = 0; i <= steps; i++) 
+		{
+			CreateTree(current);
+
+			current += (distance / steps) * direction;
+		}
+
+		return null;
 	}
 
 	public static GameObject CreateDebug(Vector3 start, Vector3 end)

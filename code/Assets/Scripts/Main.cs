@@ -6,11 +6,13 @@ public class Main : MonoBehaviour
 {
 	public GameObject PlayerTemplate;
 	public GameObject WallTemplate;
+	public GameObject TreeTemplate;
 	public Material DebugMaterialTemplate;
 	
 	void Awake()
 	{
 		Wall.WallTemplate = WallTemplate;
+		Wall.TreeTemplate = TreeTemplate;
 		Wall.DebugMaterialTemplate = DebugMaterialTemplate;
 		WorldManager.worldManager = new WorldManager ();
 	}
