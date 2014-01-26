@@ -2,12 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class MissingWall
-{
-	public Vector3 start;
-	public Vector3 end;
-}
-
 public class AreaEntry
 {
 	public float angle = 0.0f;
@@ -15,48 +9,28 @@ public class AreaEntry
 	public bool create = true;
 }
 
-public class Area : IWalls
+public delegate void AreaWallDelegate(int wall_id, Vector3 start, Vector3 end);
+
+public class Area
 {
 	public static float max_radius = 50.0f;
 	public static float min_radius = 20.0f;
 	public static float max_radius_variance = 1.5f;
 	public static float min_radius_variance = 0.5f;
 	
-	public static float max_angle_variance = 3f;
-	public static float min_angle_variance = 0.5f;
+	public static float max_angle_variance = 1.5f;
+	public static float min_angle_variance = 1f / 1.5f;
 	
 	public static int min_points = 8;
-	public static int max_points = 30;
+	public static int max_points = 24;
 	
 	public static float total_angle = 360f;
+
+	public Vector3 position { get { return m_position; } } 
 	
-	public Vector3 m_position;
-	public int m_points;
-	public List<AreaEntry> m_entries = new List<AreaEntry>();
-	
-	public bool connected = false;
-	
-	public float MinimumDistance(Vector3 position)
-	{
-		return Mathf.Max (Vector3.Distance (position, m_position) - max_radius, 0.0f);
-	}
-	
-	private float AverageRemainingAngle(int current_point, float angle_used)
-	{
-		var remaining_angle = total_angle - angle_used;
-		var remaining_points = m_points - current_point;
-		
-		return remaining_angle / remaining_points;
-	}
-	
-	public MissingWall UseWall(int wall)
+	public void UseWall(int wall)
 	{
 		(m_entries [wall] as AreaEntry).create = false;
-		return new MissingWall ()
-		{
-			start = NodePosition(wall),
-			end = NodePosition(wall + 1)
-		};
 	}
 	
 	public Area(Vector3 position)
@@ -74,8 +48,6 @@ public class Area : IWalls
 				angle = angle_used + Random.Range(min_angle_variance, max_angle_variance) * average_remaining
 			};
 			
-			//Debug.Log(string.Format("Entry {0}: {1} {2}", m_entries.Count, area_entry.radius, area_entry.angle));
-			
 			m_entries.Add(area_entry);
 			
 			old_radius = area_entry.radius;
@@ -86,7 +58,22 @@ public class Area : IWalls
 		{
 			Wall.CreateDebug(m_position, NodePosition(i));
 		}
-		//Debug.Log(string.Format("Total Angle Used: {0}", angle_used));
+	}
+	
+	public void CreateWalls()
+	{
+		IterateWalls (new AreaWallDelegate ((id, start, end) => { Wall.Create(start, end); }));
+	}
+	
+	public void IterateWalls (AreaWallDelegate observer)
+	{
+		for(int i = 0; i < m_entries.Count; i++)
+		{
+			if (!At (i).create)
+				continue;
+			
+			observer(i, NodePosition(i), NodePosition(i + 1));
+		}
 	}
 	
 	private AreaEntry At(int i)
@@ -102,24 +89,19 @@ public class Area : IWalls
 		var area_entry = At (i);
 		var unit_direction = Quaternion.AngleAxis(area_entry.angle, Vector3.back) * Vector3.up;
 		var direction = area_entry.radius * unit_direction;
-		
-		//Debug.Log (string.Format ("({0}, {1}, {2}", direction.x, direction.y, direction.z));
+
 		return m_position + direction;
 	}
 	
-	public void CreateWalls()
+	private float AverageRemainingAngle(int current_point, float angle_used)
 	{
-		IterateWalls (new WallObserver ((id, start, end) => { Wall.Create(start, end); }));
+		var remaining_angle = total_angle - angle_used;
+		var remaining_points = m_points - current_point;
+		
+		return remaining_angle / remaining_points;
 	}
 	
-	public void IterateWalls (WallObserver observer)
-	{
-		for(int i = 0; i < m_entries.Count; i++)
-		{
-			if (!At (i).create)
-				continue;
-			
-			observer(i, NodePosition(i), NodePosition(i + 1));
-		}
-	}
+	private Vector3 m_position;
+	private int m_points;
+	private List<AreaEntry> m_entries = new List<AreaEntry>();
 }
