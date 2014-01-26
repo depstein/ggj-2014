@@ -11,7 +11,7 @@ public class Sheep : GoodObject {
 	Vector3 velocity;
 	
 	// Use this for initialization
-	void Start ()
+	protected override void Start ()
 	{
 		base.Start ();
 	}
