@@ -32,6 +32,8 @@ public class Area : IArea
 	
 	public static float total_angle = 360f;
 
+	public static int spawn_directions = 40;
+
 	public Vector3 position { get { return m_position; } } 
 
 	public GameArea gameArea { get { return m_gameArea; } }
@@ -39,7 +41,7 @@ public class Area : IArea
 	public event PlayerEnteredDelegate PlayerEntered;
 	public event PlayerExitedDelegate PlayerExisted;
 
-	public SortedDictionary<int, List<int>> m_used_spawns = new SortedDictionary<int, List<int>>();
+	public SortedDictionary<int, object> m_used_spawns = new SortedDictionary<int, object>();
 	
 	public Area(Vector3 position)
 	{
@@ -53,13 +55,13 @@ public class Area : IArea
 			
 			var area_entry = new AreaEntry() { 
 				radius = Mathf.Min (Mathf.Max(Random.Range(min_radius_variance, max_radius_variance) * old_radius, min_radius), max_radius),
-				angle = angle_used + Random.Range(min_angle_variance, max_angle_variance) * average_remaining
+				angle = angle_used
 			};
 			
 			m_entries.Add(area_entry);
 			
 			old_radius = area_entry.radius;
-			angle_used = area_entry.angle;
+			angle_used = area_entry.angle + Random.Range(min_angle_variance, max_angle_variance) * average_remaining;
 		}
 		
 		for(int i = 0; i < m_entries.Count; i++)
@@ -125,16 +127,16 @@ public class Area : IArea
 	{
 		Vector3 result = Vector3.zero;
 
-		int number = Random.Range (0, 30);
+		int number = Random.Range (0, spawn_directions - m_used_spawns.Count);
 
 		foreach (var used in m_used_spawns) {
 			if (used.Key > number) break;
 			number++;
 		}
 
-		float angle = number * total_angle / 30;
+		float angle = number * total_angle / spawn_directions;
 
-		m_used_spawns.Add (number, null);
+		m_used_spawns.Add(number, null);
 
 		var direction = (Quaternion.AngleAxis (angle, Vector3.back) * Vector3.up).normalized;
 

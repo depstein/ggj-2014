@@ -63,6 +63,10 @@ public class GameArea {
 		badObjects.Remove (objectToBeAdded);
 	}
 
+	public void SpawnEnemy()
+	{
+	}
+
 	public void TurnGoodThingsTo(GameObject goodThing)
 	{
 		List<GameObject> newGood = new List<GameObject> ();
