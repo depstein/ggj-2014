@@ -63,6 +63,7 @@ public class Game : MonoBehaviour {
 	public ITimerControl enemyTimer;
 	public ITimerControl rabbitTimer;
 	public ITimerControl sheepTimer;
+	public ITimerControl reduceDifficultyTimer;
 
 	public Timers timers = new Timers();
 
@@ -70,6 +71,7 @@ public class Game : MonoBehaviour {
 
 	void SetDifficulty(float new_difficulty)
 	{
+		new_difficulty = Mathf.Max (Mathf.Min (new_difficulty, 1f), 0);
 		enemyTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.5f + (1f - new_difficulty) / 2));
 		rabbitTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.5f + (new_difficulty / 2)));
 		difficulty = new_difficulty;
@@ -77,7 +79,7 @@ public class Game : MonoBehaviour {
 
 	public void PlayerFired()
 	{
-		SetDifficulty (Mathf.Min(difficulty + 0.1f, 1f));
+		SetDifficulty (difficulty + 0.01f);
 	}
 
 	// Use this for initialization
@@ -85,7 +87,10 @@ public class Game : MonoBehaviour {
 		enemyTimer = timers.Add (SPAWN_ENEMY_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnEnemy (); });
 		rabbitTimer = timers.Add (SPAWN_RABBIT_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnRabbit (); });
 		sheepTimer = timers.Add (SPAWN_SHEEP_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnSheep (); });
-
+		reduceDifficultyTimer = timers.Add (1f, delegate() {
+			Debug.Log ("diff: "+difficulty);
+						SetDifficulty (difficulty - .001f);
+				});
 		SetDifficulty (0f);
 	}
 
