@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class Hat : MonoBehaviour {
-	private bool connectedToPlayer = true;
-
 	// Use this for initialization
 	void Start () {
 	
@@ -17,8 +15,11 @@ public class Hat : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.GetComponent<Player> () != null) {
-			Debug.Log (this.gameObject.name);
-			//other.gameObject.GetComponent<Player>().PutOnHat();
+			switch(this.gameObject.name) {
+				case "Archer Hat":
+					other.gameObject.AddComponent<Archer>();
+					break;
+			}
 			Destroy (this.gameObject);
 		}
 	}
