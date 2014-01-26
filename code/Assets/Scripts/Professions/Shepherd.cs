@@ -21,18 +21,29 @@ public class Shepherd : Profession {
 		}
 	}
 
-	void Shout()
+	void ShoutAt(GameObject obj)
 	{
-		foreach (GameObject obj in _player.gameArea.badObjects) {
-			Vector3 diff = obj.transform.position - transform.position;
-			if (diff.magnitude < 5)
+		Vector3 diff = obj.transform.position - transform.position;
+		if (diff.magnitude < 5)
+		{
+			BadObject s = obj.GetComponent<BadObject>();
+			if (s != null)
 			{
-				BadObject s = obj.GetComponent<BadObject>();
-				if (s != null)
-				{
-					s.RunFromPlayer(transform);
-				}
+				Debug.Log ("      "+obj.name + " running");
+				s.RunFromPlayer(transform);
 			}
 		}
+	}
+	void Shout()
+	{
+		if (_player.gameArea != null) {
+						foreach (GameObject obj in _player.gameArea.badObjects) {
+								ShoutAt (obj);
+						}
+
+						foreach (GameObject obj in _player.gameArea.goodObjects) {
+								ShoutAt (obj);
+						}
+				}
 	}
 }
