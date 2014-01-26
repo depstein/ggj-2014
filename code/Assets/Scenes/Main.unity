@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   difficulty: 0
+  points: 0
 --- !u!4 &1941505410
 Transform:
   m_ObjectHideFlags: 0
