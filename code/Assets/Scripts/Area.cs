@@ -49,9 +49,8 @@ public class Area : IWalls
 		return remaining_angle / remaining_points;
 	}
 	
-	public MissingWall GetWall()
+	public MissingWall UseWall(int wall)
 	{
-		int wall = Random.Range (0, m_entries.Count - 1);
 		(m_entries [wall] as AreaEntry).create = false;
 		return new MissingWall ()
 		{
@@ -110,7 +109,7 @@ public class Area : IWalls
 	
 	public void CreateWalls()
 	{
-		IterateWalls (new WallObserver ((a, b) => { Wall.Create(a, b); }));
+		IterateWalls (new WallObserver ((id, start, end) => { Wall.Create(start, end); }));
 	}
 	
 	public void IterateWalls (WallObserver observer)
@@ -120,7 +119,7 @@ public class Area : IWalls
 			if (!At (i).create)
 				continue;
 			
-			observer(NodePosition(i), NodePosition(i + 1));
+			observer(i, NodePosition(i), NodePosition(i + 1));
 		}
 	}
 }

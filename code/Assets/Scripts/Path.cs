@@ -27,7 +27,7 @@ public class Path : IWalls
 	
 	private Rect m_bounding_box;
 	
-	public void CalculateBoundingBox(Vector3 start, Vector3 end)
+	public void CalculateBoundingBox(int wall_id, Vector3 start, Vector3 end)
 	{
 		m_bounding_box.xMin = Mathf.Min (m_bounding_box.xMin, start.x, end.x);
 		m_bounding_box.yMin = Mathf.Min (m_bounding_box.yMin, start.y, end.y);
@@ -104,13 +104,13 @@ public class Path : IWalls
 	private Vector3 Left(PathNode node) { return Out(node, Vector3.back); }
 	private Vector3 Right(PathNode node) { return Out(node, Vector3.forward); }
 	
-	public void EdgeToWall(PathNode previous, PathNode current, WallObserver observer)
+	public void EdgeToWall(int id, PathNode previous, PathNode current, WallObserver observer)
 	{	
-		observer (previous.position + Right (previous), current.position + Right (current));
-		observer (previous.position + Left (previous), current.position + Left (current));
+		observer (id, previous.position + Right (previous), current.position + Right (current));
+		observer (id, previous.position + Left (previous), current.position + Left (current));
 	}
 	
-	public delegate void EdgeObserver(PathNode previous, PathNode current);
+	public delegate void EdgeObserver(int id, PathNode previous, PathNode current);
 	
 	public void IterateEdges(EdgeObserver observer)
 	{
@@ -131,19 +131,19 @@ public class Path : IWalls
 				previous = m_points[i - 1] as PathNode;
 			}
 			
-			observer(previous, current);
+			observer(-1, previous, current);
 		}
 	}
 	
 	
 	public void IterateWalls(WallObserver observer)
 	{
-		IterateEdges (new EdgeObserver ((a, b) => EdgeToWall (a, b, observer)));
+		IterateEdges (new EdgeObserver ((id, a, b) => EdgeToWall (id, a, b, observer)));
 	}
 	
 	public void CreateWalls()
 	{
-		IterateWalls (new WallObserver ((a, b) => { Wall.Create(a, b); }));
+		IterateWalls (new WallObserver ((id, a, b) => { Wall.Create(a, b); }));
 	}
 	
 	public float MinimumDistance(Vector3 position)

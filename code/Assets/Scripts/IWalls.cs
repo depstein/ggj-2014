@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public delegate void WallObserver(Vector3 start, Vector3 end);
+public delegate void WallObserver(int wall_id, Vector3 start, Vector3 end);
 
 public interface IWalls
 {

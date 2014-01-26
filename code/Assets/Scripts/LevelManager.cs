@@ -18,9 +18,46 @@ public class LevelManager : IPathChecks
 			area.CreateWalls ();
 		}
 	}
+
+	public void MakePathway(Vector3 start_left, Vector3 start_right, Vector3 end_left, Vector3 end_right)
+	{
+
+	}
 	
 	public static float grid_size = Area.max_radius * 5f;
-	
+
+	void IntersectLineWithArea(out int wall_id, Vector3 line_position, Vector3 line_vector, Area target)
+	{
+		float closest = -1f;
+		int result = -1;
+
+		target.IterateWalls (
+			(id, start, end) => 
+			{
+				var wall_position = start;
+				var wall_vector = end - start;
+
+				Vector3 intersection;
+
+				if (MathHelper.LineLineIntersection (
+					out intersection,
+					wall_position,
+					wall_vector,
+					line_position,
+					line_vector)) 
+				{
+					var distance = Vector3.Distance(line_position, intersection);
+					if (closest < 0 || distance < closest)
+					{
+						closest = distance;
+						result = id;
+					}
+				}
+			});
+
+		wall_id = result;
+	}
+
 	public LevelManager()
 	{
 		for(int i = 0; i < 10; i++)
@@ -34,19 +71,28 @@ public class LevelManager : IPathChecks
 				AddArea(new Vector3(
 					Random.Range(x * grid_size + Area.max_radius, (x + 1) * grid_size - Area.max_radius),
 					Random.Range(y * grid_size + Area.max_radius, (y + 1) * grid_size - Area.max_radius),
-					0
-					));
+					0));
 			}
 		}
 		
 		List<Edge> mst = ConnectAreas ();
 		foreach (Edge e in mst) {
+			var connection_position = e.a.m_position;
+			var connection_vector = e.b.m_position - e.a.m_position;
+
+			int wall_a = 0;
+			IntersectLineWithArea(out wall_a, e.b.m_position, e.a.m_position - e.b.m_position, e.a);
+
+			int wall_b = 0;
+			IntersectLineWithArea(out wall_b, e.a.m_position, e.b.m_position - e.a.m_position, e.b);
+			
+			e.a.UseWall(wall_a);
+			e.b.UseWall(wall_b);
+
 			Wall.CreateDebug(e.a.m_position, e.b.m_position);
 		}
+
 		CreateWalls ();
-		//var direction = wall.end - wall.start;
-		//var p = new Pathway(this, wall.start + direction / 2, Vector3.Cross(direction.normalized, Vector3.back), direction.magnitude / 2);
-		//p.CreateWalls ();
 		
 	}
 	
@@ -85,7 +131,7 @@ public class LevelManager : IPathChecks
 	{
 		if (wall_object.MinimumDistance(position) == 0.0f)
 		{
-			wall_object.IterateWalls(new WallObserver((start, end) => { observer(start, end); }));
+			wall_object.IterateWalls(new WallObserver((id, start, end) => { observer(start, end); }));
 		}
 	}
 }
