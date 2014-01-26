@@ -84,4 +84,12 @@ public class Player : AreaObject {
 		mouseDirection = mouse - screen;
 		mouseDirection.Normalize ();
 	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.GetComponent<Projectile> () != null) {
+			Game.game.health -= 1;
+			Destroy (other.gameObject);
+		}
+	}
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Game : MonoBehaviour {
 
-	public float health;
+	public int health;
 	private float hatTimer;
 	public static Game game;
 	public const float SPAWN_ENEMY_EVERY = 10f;
@@ -12,7 +12,7 @@ public class Game : MonoBehaviour {
 
 	void Awake() {
 		game = this;
-		health = 30f;
+		health = 10;
 		enemyTimer = SPAWN_ENEMY_EVERY;
 	}
 
@@ -27,7 +27,6 @@ public class Game : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		health -= Time.deltaTime;
 		enemyTimer -= Time.deltaTime;
 
 		if (enemyTimer < 0) {

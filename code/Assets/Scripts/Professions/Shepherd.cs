@@ -29,7 +29,6 @@ public class Shepherd : Profession {
 			BadObject s = obj.GetComponent<BadObject>();
 			if (s != null)
 			{
-				Debug.Log ("      "+obj.name + " running");
 				s.RunFromPlayer(transform);
 			}
 		}
