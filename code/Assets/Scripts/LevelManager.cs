@@ -58,17 +58,19 @@ public class LevelManager
 		wall_id = result;
 	}
 
+	public static int grid_count = 4;
+
 	public LevelManager()
 	{
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < grid_count; i++)
 		{
-			Wall.CreateDebug(new Vector3(i * grid_size, 0, 0), new Vector3(i * grid_size, grid_size * 10, 0));
-			Wall.CreateDebug(new Vector3(0, i * grid_size, 0), new Vector3(grid_size * 10, i * grid_size, 0));
+			Wall.CreateDebug(new Vector3(i * grid_size, 0, 0), new Vector3(i * grid_size, grid_size * grid_count, 0));
+			Wall.CreateDebug(new Vector3(0, i * grid_size, 0), new Vector3(grid_size * grid_count, i * grid_size, 0));
 		}
 		
-		for (int x = 0; x < 10; x++) 
+		for (int x = 0; x < grid_count; x++) 
 		{
-			for (int y = 0; y < 10; y++) 
+			for (int y = 0; y < grid_count; y++) 
 			{
 				AddArea(new Vector3(
 					Random.Range(x * grid_size + Area.max_radius, (x + 1) * grid_size - Area.max_radius),
