@@ -8,7 +8,7 @@ public class Wall
 	public static Material DebugMaterialTemplate;
 	public static bool EnableDebug = false;
 
-	public static GameObject Create(Vector3 start, Vector3 end)
+	public static GameObject CreateSolid(Vector3 start, Vector3 end)
 	{
 		var delta = end - start;
 		var position = start + delta / 2;
@@ -21,11 +21,16 @@ public class Wall
 		return wall;
 	}
 
+	public static GameObject Create(Vector3 start, Vector3 end)
+	{
+		return CreateSolid (start, end);
+	}
+
 	public static GameObject CreateDebug(Vector3 start, Vector3 end)
 	{
 		if (!EnableDebug) return null;
 
-		var wall = Create (start, end);
+		var wall = CreateSolid (start, end);
 		wall.transform.localScale = new Vector3(0.1f, wall.transform.localScale.y, wall.transform.localScale.z);
 		wall.transform.position = new Vector3 (wall.transform.position.x, wall.transform.position.y, 20);
 		wall.GetComponent<MeshRenderer> ().materials = new Material[] { DebugMaterialTemplate };
