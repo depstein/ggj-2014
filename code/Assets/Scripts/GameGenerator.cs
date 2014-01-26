@@ -33,9 +33,4 @@ public class GameGenerator : MonoBehaviour
 			Instantiate (SheepTemplate, spot, Quaternion.identity);
 		}
 	}
-
-	void Update () 
-	{
-	
-	}
 }
