@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Archer : MonoBehaviour {
+public class Archer : Profession {
 
 	private Animator _animator;
 	private Player _player;
@@ -18,6 +18,7 @@ public class Archer : MonoBehaviour {
 		_mouth = transform.Find("body/front/mouth");
 
 		_player.PutOnHat(Resources.Load<GameObject>("Archer Hat"));
+		whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
 		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	

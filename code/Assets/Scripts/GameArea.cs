@@ -35,6 +35,20 @@ public class GameArea : MonoBehaviour {
 		badObjects.Add (objectToBeAdded);
 	}
 
+	public void TurnGoodThingsTo(GameObject goodThing)
+	{
+		List<GameObject> newGood = new List<GameObject> ();
+		foreach (GameObject obj in goodObjects) {
+			Debug.Log ("Good object: " + obj);
+			GameObject good = (GameObject)Instantiate (goodThing);
+			good.transform.position = obj.transform.position;
+			good.transform.rotation = obj.transform.rotation;
+			newGood.Add (good);
+			Destroy (obj);
+		}
+		goodObjects = newGood;
+	}
+
 	// Use this for initialization
 	void Start () {
 	

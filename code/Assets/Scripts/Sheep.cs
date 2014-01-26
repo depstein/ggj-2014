@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Sheep : MonoBehaviour {
+public class Sheep : GoodObject {
 
 	bool sitting = false;
 	public bool isInRegion = false;
@@ -13,6 +13,7 @@ public class Sheep : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		base.Start ();
 	}
 	
 	// Update is called once per frame

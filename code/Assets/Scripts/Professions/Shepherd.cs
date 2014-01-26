@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shepherd : MonoBehaviour {
+public class Shepherd : Profession {
 	
 	private Animator _animator;
 	private Player _player;

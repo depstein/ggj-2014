@@ -6,6 +6,7 @@ public class Rabbit : BadObject {
 	Vector3 velocity;
 	// Use this for initialization
 	void Start () {
+		base.Start ();
 		target = GameArea.gameArea.gameAreaTarget.transform.position;
 	}
 	

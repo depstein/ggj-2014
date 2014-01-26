@@ -15,10 +15,12 @@ public class Hat : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.GetComponent<Player> () != null) {
+			Destroy(other.gameObject.GetComponent<Profession>());
 			switch(this.gameObject.name) {
 				case "Archer Hat":
 					other.gameObject.AddComponent<Archer>();
-					break;
+					GameArea.gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("archer-good-pickup"));
+				    break;
 			}
 			Destroy (this.gameObject);
 		}
