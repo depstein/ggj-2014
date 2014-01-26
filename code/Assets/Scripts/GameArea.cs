@@ -87,7 +87,6 @@ public class GameArea {
 
 	public void AddRandomHat()
 	{
-		Debug.Log ("hat hat hat");
 		GameObject.Instantiate (Resources.Load<GameObject>(Hat.RandomHat()), myArea.GetSpawnLocation(), Quaternion.identity);
 	}
 }
