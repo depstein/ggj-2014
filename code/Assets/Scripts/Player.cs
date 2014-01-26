@@ -29,9 +29,6 @@ public class Player : MonoBehaviour {
 		_animator = GetComponent<Animator>();
 
 		_pupil = transform.Find ("body/front/pupil").gameObject;
-
-		//gameObject.AddComponent<Shepherd>();
-		//GetComponent<Archer>().whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
 	}
 	
 	// Update is called once per frame

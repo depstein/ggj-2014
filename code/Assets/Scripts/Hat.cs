@@ -19,10 +19,10 @@ public class Hat : AreaObject {
 				Destroy(other.gameObject.GetComponent<Profession>());
 			}
 			switch(this.gameObject.name) { //TODO: this will fail when we start cloning things (aka making them dynamically)
-				case "Archer Hat":
+				case "ArcherHat":
 					WorldMode.ChangeModeTo(other.gameObject, PlayerMode.archer, gameArea);
 				    break;
-				case "shepherd-staff":
+				case "ShepherdStaff":
 				WorldMode.ChangeModeTo(other.gameObject, PlayerMode.shepherd, gameArea);
 					break;
 			}

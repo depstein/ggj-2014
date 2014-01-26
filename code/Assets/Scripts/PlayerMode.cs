@@ -16,13 +16,13 @@ public class WorldMode {
 			break;
 		case PlayerMode.archer:
 			player.AddComponent<Archer>();
-			gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("archer-good-pickup"));
+			gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("Quiver"));
 			gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Rabbit"));
 			break;
 		case PlayerMode.shepherd:
 			player.AddComponent<Shepherd>();
-			gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("sheep"));
-			//GameArea.gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Rabbit"));
+			gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("Sheep"));
+			gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Water"));
 			break;
 		}
 		mode = newMode;

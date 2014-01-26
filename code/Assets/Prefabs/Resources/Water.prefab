@@ -9,10 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 60: {fileID: 6000000}
-  - 114: {fileID: 11400000}
+  - 61: {fileID: 6100000}
   m_Layer: 0
-  m_Name: shepherd-staff
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,13 +23,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: .122217968, w: -.992503345}
-  m_LocalPosition: {x: .264868617, y: -.0120386481, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.67030096, y: -8.51244736, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!60 &6000000
-PolygonCollider2D:
+--- !u!61 &6100000
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -38,34 +37,8 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: .264999986, y: .399999976}
-      - {x: .314999998, y: .459999979}
-      - {x: .314999998, y: .719999969}
-      - {x: .305000007, y: .789999962}
-      - {x: .185000002, y: .979999959}
-      - {x: .0850000009, y: 1}
-      - {x: -.125, y: 1}
-      - {x: -.24499999, y: .889999986}
-      - {x: -.284999996, y: .799999952}
-      - {x: -.284999996, y: -.859999955}
-      - {x: -.214999989, y: -.899999976}
-      - {x: -.125, y: -.899999976}
-      - {x: -.0749999955, y: -.849999964}
-      - {x: -.0850000009, y: .669999957}
-      - {x: .174999997, y: .439999998}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b980110fa7344a0d8f7689cb8d97edc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -87,7 +60,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: b1db71ac472f647c594d7deee21ffe2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dcad76ea5efcc40dabdd655b13986c62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
