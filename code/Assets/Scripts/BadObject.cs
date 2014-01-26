@@ -62,6 +62,7 @@ public class BadObject : AreaObject {
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.GetComponent<Projectile> () != null) {
+			Debug.Log (this.gameObject.name + " was died");
 			Destroy (this.gameObject);
 			Destroy (other.gameObject);
 		}

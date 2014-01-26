@@ -57,7 +57,7 @@ public class Game : MonoBehaviour {
 	public const float SPAWN_RABBIT_EVERY = 10f;
 	public const float SPAWN_SHEEP_EVERY = 10f;
 	
-	public int health = 30;
+	public int health;
 	public float difficulty = 0.0f;
 	
 	public ITimerControl enemyTimer;
@@ -66,7 +66,7 @@ public class Game : MonoBehaviour {
 
 	public Timers timers = new Timers();
 
-	void Awake() { game = this; health = 30; }
+	void Awake() { game = this; health = 10; }
 
 	void SetDifficulty(float new_difficulty)
 	{
@@ -82,9 +82,9 @@ public class Game : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		enemyTimer = timers.Add (SPAWN_ENEMY_EVERY, delegate() { Player.player.gameArea.SpawnEnemy (); });
-		rabbitTimer = timers.Add (SPAWN_RABBIT_EVERY, delegate() { Player.player.gameArea.SpawnRabbit (); });
-		sheepTimer = timers.Add (SPAWN_SHEEP_EVERY, delegate() { Player.player.gameArea.SpawnSheep (); });
+		enemyTimer = timers.Add (SPAWN_ENEMY_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnEnemy (); });
+		rabbitTimer = timers.Add (SPAWN_RABBIT_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnRabbit (); });
+		sheepTimer = timers.Add (SPAWN_SHEEP_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnSheep (); });
 
 		SetDifficulty (0f);
 	}
