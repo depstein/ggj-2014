@@ -22,11 +22,11 @@ public class AnimatedCharacter : MonoBehaviour {
 		Vector3 velocity = rigidbody2D.velocity;
 		_animator.SetFloat("SpeedSqr", velocity.sqrMagnitude);
 
-		if (velocity.y > 0)
+		if (velocity.y > 0.5)
 		{
 			ShowBack();
 		}
-		if (velocity.y < 0)
+		if (velocity.y < -0.5)
 		{
 			ShowFront();
 		}
