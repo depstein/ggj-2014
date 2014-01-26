@@ -367,6 +367,8 @@ public class Area : IWalls
 	public int m_points;
 	public List<AreaEntry> m_entries = new List<AreaEntry>();
 
+	public bool connected = false;
+
 	public float MinimumDistance(Vector3 position)
 	{
 		return Mathf.Max (Vector3.Distance (position, m_position) - max_radius, 0.0f);
@@ -456,6 +458,18 @@ public class Area : IWalls
 	}
 }
 
+public class Edge {
+	public Area a;
+	public Area b;
+	public float distance;
+
+	public Edge(Area a, Area b) {
+		this.a = a;
+		this.b = b;
+		this.distance = Vector3.Distance (a.m_position, b.m_position);
+	}
+}
+
 public class LevelManager : IPathChecks
 {
 	private List<Pathway> m_paths = new List<Pathway> ();
@@ -493,11 +507,38 @@ public class LevelManager : IPathChecks
 			}
 		}
 
+		List<Edge> mst = ConnectAreas ();
+		foreach (Edge e in mst) {
+			Wall.CreateDebug(e.a.m_position, e.b.m_position);
+		}
 		CreateWalls ();
 		//var direction = wall.end - wall.start;
 		//var p = new Pathway(this, wall.start + direction / 2, Vector3.Cross(direction.normalized, Vector3.back), direction.magnitude / 2);
 		//p.CreateWalls ();
 
+	}
+
+	public List<Edge> ConnectAreas() {
+		List<Edge> edges = new List<Edge> ();
+		for (int i=0; i<m_areas.Count; i++) {
+			for(int j=i+1; j<m_areas.Count;j++) {
+				edges.Add (new Edge(m_areas[i], m_areas[j]));
+			}
+		}
+		edges.Sort ((x, y) => x.distance.CompareTo (y.distance));
+
+		List<Edge> mst = new List<Edge> ();
+		edges [0].a.connected = true;
+		for(int i=0;i<edges.Count; i++) {
+			if(edges[i].a.connected != edges[i].b.connected) {
+				mst.Add (edges[i]);
+				edges[i].a.connected = true;
+				edges[i].b.connected = true;
+				i = 0; //TODO: if we increase V substantially, this will grind to a halt.
+			}
+		}
+
+		return mst;
 	}
 
 	public void IntersectEdges (Vector3 position, PathCheckObserver observer)
