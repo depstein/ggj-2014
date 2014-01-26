@@ -6,4 +6,8 @@ public class GoodObject : MonoBehaviour {
 	void Start () {
 		GameArea.gameArea.AddGoodObject (this.gameObject);
 	}
+
+	void OnDestroy() {
+		GameArea.gameArea.RemoveGoodObject (this.gameObject);
+	}
 }
