@@ -39,7 +39,6 @@ public class GameArea : MonoBehaviour {
 	{
 		List<GameObject> newGood = new List<GameObject> ();
 		foreach (GameObject obj in goodObjects) {
-			Debug.Log ("Good object: " + obj);
 			GameObject good = (GameObject)Instantiate (goodThing);
 			good.transform.position = obj.transform.position;
 			good.transform.rotation = obj.transform.rotation;
@@ -47,6 +46,19 @@ public class GameArea : MonoBehaviour {
 			Destroy (obj);
 		}
 		goodObjects = newGood;
+	}
+
+	public void TurnBadThingsTo(GameObject badThing)
+	{
+		List<GameObject> newBad = new List<GameObject> ();
+		foreach (GameObject obj in badObjects) {
+			GameObject bad = (GameObject)Instantiate (badThing);
+			bad.transform.position = obj.transform.position;
+			bad.transform.rotation = obj.transform.rotation;
+			newBad.Add (bad);
+			Destroy (obj);
+		}
+		badObjects = newBad;
 	}
 
 	// Use this for initialization

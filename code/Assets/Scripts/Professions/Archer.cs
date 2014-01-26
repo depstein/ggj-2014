@@ -46,7 +46,7 @@ public class Archer : Profession {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.name == "archer-good-pickup") {
+		if (other.gameObject.GetComponent<Quiver>() != null) {
 			Destroy (other.gameObject);
 			ammoCount++; //TODO: should we put more than one arrow in the quiver?
 		}
