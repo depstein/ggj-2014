@@ -5,11 +5,19 @@ using System.Collections.Generic;
 public class WorldManager
 {
 	public static WorldManager worldManager;
+	public static GameObject GrassTemplate;
 	public static int grid_count = 4;
 	public static float grid_size = Area.max_radius * 3f;
 
 	public void Load()
 	{
+		var dim = grid_size * grid_count / 2;
+		var tiling_count = Mathf.Floor ((grid_size * grid_count) / 4.0f);
+
+		var grass = GameObject.Instantiate (GrassTemplate, new Vector3 (dim, dim, 500), Quaternion.identity) as GameObject;
+		grass.transform.localScale = new Vector3 (2 * dim, 2 * dim, 1);
+		grass.GetComponent<MeshRenderer>().material.SetTextureScale("_MainTex", new Vector2(tiling_count, tiling_count));
+
 		for(int i = 0; i < grid_count; i++)
 		{
 			Wall.CreateDebug(new Vector3(i * grid_size, 0, 0), new Vector3(i * grid_size, grid_size * grid_count, 0));
