@@ -8,6 +8,7 @@ public class Pen : AreaObject {
 		Sheep s = other.gameObject.GetComponent<Sheep> ();
 		if (s != null && !s.isInRegion && s.gameArea == Player.player.gameArea) {
 			Debug.Log ("COLLIDED SHEEP");
+			Game.game.points++;
 			s.isInRegion = true;
 		}
 	}

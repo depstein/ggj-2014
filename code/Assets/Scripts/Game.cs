@@ -59,6 +59,7 @@ public class Game : MonoBehaviour {
 	
 	public int health;
 	public float difficulty = 0.0f;
+	public int points;
 	
 	public ITimerControl enemyTimer;
 	public ITimerControl rabbitTimer;
@@ -94,6 +95,7 @@ public class Game : MonoBehaviour {
 		GUI.Box (new Rect (60f, 50f, 15f + health * 4f, 15f), "");
 		GUI.TextField (new Rect (10f, 80f, 70f, 20f), "Difficulty:", GUIStyle.none);
 		GUI.Box (new Rect (80f, 80f, 15f + difficulty * 120f, 15f), "");
+		GUI.TextField (new Rect (10f, 110f, 50f, 20f), "Points: " + points, GUIStyle.none);
 	}
 
 	void Lost()
