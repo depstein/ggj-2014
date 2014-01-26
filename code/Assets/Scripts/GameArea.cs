@@ -65,6 +65,10 @@ public class GameArea {
 
 	public void SpawnEnemy()
 	{
+		GameObject enemy = GameObject.Instantiate (Resources.Load<GameObject>("Enemy"), myArea.GetSpawnLocation(), Quaternion.identity) as GameObject;
+		var areaObj = enemy.GetComponent<AreaObject>();
+		areaObj.gameArea = this;
+		AddBadObject(enemy);
 	}
 
 	public void TurnGoodThingsTo(GameObject goodThing)
