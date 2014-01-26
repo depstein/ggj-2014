@@ -3,17 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameArea {
-	
-	public static GameArea gameArea;
+
 	public GameObject gameAreaTarget;
 	public List<GameObject> goodObjects;
 	public List<GameObject> badObjects;
+	public IArea myArea;
 
 	public GameArea(IArea area) {
+		myArea = area;
 		goodObjects = new List<GameObject> ();
 		badObjects = new List<GameObject> ();
-		if (gameArea == null) {
-			gameArea = this;
+
+		for (int i=0; i<Random.Range (8,10); i++) {
+			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("BadObject"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
+			AreaObject areaObj = bad.GetComponent<AreaObject>();
+			areaObj.gameArea = this;
+			AddBadObject(bad);
+		}
+
+		for (int i=0; i<Random.Range (8,10); i++) {
+			GameObject good = GameObject.Instantiate (Resources.Load<GameObject>("GoodObject"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
+			AreaObject areaObj = good.GetComponent<AreaObject>();
+			areaObj.gameArea = this;
+			AddGoodObject(good);
 		}
 	}
 

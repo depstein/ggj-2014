@@ -17,8 +17,8 @@ public class Archer : Profession {
 		_player = GetComponent <Player> ();
 		_mouth = transform.Find("body/front/mouth");
 
-		_player.PutOnHat(Resources.Load<GameObject>("Archer Hat"));
-		whatIFire = (GameObject)Resources.Load("archer-projectile", typeof(GameObject));
+		_player.PutOnHat(Resources.Load<GameObject>("ArcherHat"));
+		whatIFire = (GameObject)Resources.Load("Arrow", typeof(GameObject));
 		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	

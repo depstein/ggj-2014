@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hat : MonoBehaviour {
+public class Hat : AreaObject {
 	// Use this for initialization
 	void Start () {
 	
@@ -19,11 +19,11 @@ public class Hat : MonoBehaviour {
 				Destroy(other.gameObject.GetComponent<Profession>());
 			}
 			switch(this.gameObject.name) { //TODO: this will fail when we start cloning things (aka making them dynamically)
-				case "Archer Hat":
-					WorldMode.ChangeModeTo(other.gameObject, PlayerMode.archer);
+				case "ArcherHat":
+					WorldMode.ChangeModeTo(other.gameObject, PlayerMode.archer, gameArea);
 				    break;
-				case "shepherd-staff":
-				WorldMode.ChangeModeTo(other.gameObject, PlayerMode.shepherd);
+				case "ShepherdStaff":
+				WorldMode.ChangeModeTo(other.gameObject, PlayerMode.shepherd, gameArea);
 					break;
 			}
 			Destroy (this.gameObject);
