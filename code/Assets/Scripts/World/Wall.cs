@@ -6,6 +6,7 @@ public class Wall
 {
 	public static GameObject WallTemplate;
 	public static GameObject TreeTemplate;
+	public static GameObject AreaDetectorTemplate;
 	public static Material DebugMaterialTemplate;
 	public static bool EnableDebug = false;
 	public static float tree_radius = 2.0f;
