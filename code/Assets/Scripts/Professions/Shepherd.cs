@@ -23,11 +23,11 @@ public class Shepherd : Profession {
 
 	void Shout()
 	{
-		foreach (GameObject obj in _player.gameArea.goodObjects) {
+		foreach (GameObject obj in _player.gameArea.badObjects) {
 			Vector3 diff = obj.transform.position - transform.position;
 			if (diff.magnitude < 5)
 			{
-				Sheep s = obj.GetComponent<Sheep>();
+				BadObject s = obj.GetComponent<BadObject>();
 				if (s != null)
 				{
 					s.RunFromPlayer(transform);
