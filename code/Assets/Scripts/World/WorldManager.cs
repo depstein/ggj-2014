@@ -50,6 +50,9 @@ public class WorldManager
 			var wall_a = e.a.UseWall(wall_a_id);
 			var wall_b = e.b.UseWall(wall_b_id);
 			
+			Wall.CreateDetector(wall_a.left, wall_a.right);
+			Wall.CreateDetector(wall_b.left, wall_b.right);
+			
 			m_trails.Add(new Trail(wall_a.left, wall_a.right, wall_b.right, wall_b.left));
 			
 			Wall.CreateDebug(e.a.position, e.b.position);
