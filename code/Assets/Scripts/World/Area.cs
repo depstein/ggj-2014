@@ -38,6 +38,8 @@ public class Area : IArea
 
 	public event PlayerEnteredDelegate PlayerEntered;
 	public event PlayerExitedDelegate PlayerExisted;
+
+	public SortedDictionary<int, List<int>> m_used_spawns = new SortedDictionary<int, List<int>>();
 	
 	public Area(Vector3 position)
 	{
@@ -123,7 +125,16 @@ public class Area : IArea
 	{
 		Vector3 result = Vector3.zero;
 
-		float angle = Random.Range (0f, total_angle);
+		int number = Random.Range (0, 30);
+
+		foreach (var used in m_used_spawns) {
+			if (used.Key > number) break;
+			number++;
+		}
+
+		float angle = number * total_angle / 30;
+
+		m_used_spawns.Add (number, null);
 
 		var direction = (Quaternion.AngleAxis (angle, Vector3.back) * Vector3.up).normalized;
 
@@ -140,7 +151,7 @@ public class Area : IArea
 				var distance_along = (angle - this_angle) / (next_angle - this_angle);
 				var edge = before + distance_along * (after - before);
 				var offset = edge - position;
-				result = position + Random.value * (offset - new Vector3(2.5f, 2.5f, 0.0f));
+				result = position + Random.Range(4f / offset.magnitude, 1f) * (offset - 4 * offset.normalized);
 				break;
 			}
 		}
