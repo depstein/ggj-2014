@@ -194,7 +194,7 @@ AnimationClip:
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_Events:
-  - time: .366666675
+  - time: .01
     functionName: DoFire
     data: 
     objectReferenceParameter: {fileID: 0}
