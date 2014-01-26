@@ -21,6 +21,11 @@ public class LevelManager
 		}
 	}
 
+	public Area PickRandomArea()
+	{
+		return m_areas [Random.Range (0, m_areas.Count)];
+	}
+
 	private void IntersectLineWithArea(out int wall_id, Vector3 line_position, Vector3 line_vector, Area target)
 	{
 		float closest = -1f;
