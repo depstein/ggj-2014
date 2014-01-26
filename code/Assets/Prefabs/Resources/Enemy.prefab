@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: right-foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: left-foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 60: {fileID: 6000000}
   - 122: {fileID: 12200000}
   - 114: {fileID: 11400000}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200004}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: eye-white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200006}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200008}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400012}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HatLocator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400014}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 212: {fileID: 21200010}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: back-spots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400018}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400020}
   - 212: {fileID: 21200012}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400022}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400024}
   - 212: {fileID: 21200014}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandLocator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400028}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BeardLocator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400030}
   - 212: {fileID: 21200016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcherHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
