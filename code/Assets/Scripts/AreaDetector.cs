@@ -23,7 +23,6 @@ public class AreaDetector : MonoBehaviour {
 			if (!m_inside)
 			{
 				m_inside = true;
-				Debug.Log("Player hit me");
 				if (PlayerHit != null)
 					PlayerHit(Player.player.transform.position);
 			}
