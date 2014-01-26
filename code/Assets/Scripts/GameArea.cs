@@ -26,7 +26,7 @@ public class GameArea {
 		}
 
 		for (int i=0; i<Random.Range (8,10); i++) {
-			GameObject good = GameObject.Instantiate (Resources.Load<GameObject>("Quiver"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
+			GameObject good = GameObject.Instantiate (Resources.Load<GameObject>("Sheep"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
 			areaObj = good.GetComponent<AreaObject>();
 			areaObj.gameArea = this;
 			AddGoodObject(good);

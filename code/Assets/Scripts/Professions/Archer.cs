@@ -6,7 +6,6 @@ public class Archer : Profession {
 	private Transform _mouth;
 	public GameObject whatIFire;
 	private Vector3 _projectileDirection;
-	private int ammoCount = 0;
 
 	// Use this for initialization
 	protected override void Start () {
@@ -23,8 +22,7 @@ public class Archer : Profession {
 
 	void CheckFire()
 	{
-		if (Input.GetMouseButtonDown (0) && ammoCount > 0) {
-			ammoCount--;
+		if (Input.GetMouseButtonDown (0)) {
 			_projectileDirection = _player.mouseDirection;
 			_animator.SetTrigger("Attack");
 		}
@@ -38,13 +36,5 @@ public class Archer : Profession {
 		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
 
 		Game.game.PlayerFired ();
-	}
-
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		if (other.gameObject.GetComponent<Quiver>() != null) {
-			Destroy (other.gameObject);
-			ammoCount++; //TODO: should we put more than one arrow in the quiver?
-		}
 	}
 }
