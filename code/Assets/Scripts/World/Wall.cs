@@ -30,6 +30,17 @@ public class Wall
 		GameObject.Instantiate (TreeTemplate, position, Quaternion.identity);
 	}
 
+	private static void CreateDetector(Vector3 start, Vector3 end)
+	{
+		var delta = end - start;
+		var position = start + delta / 2;
+		var scale = new Vector3 (1, delta.magnitude, 1);
+		var rotate = Quaternion.FromToRotation (Vector3.up, delta);
+		
+		var wall = GameObject.Instantiate (AreaDetectorTemplate, position, rotate) as GameObject;
+		wall.transform.localScale = scale;
+	}
+
 	public static GameObject Create(Vector3 start, Vector3 end)
 	{
 		if (end.y < start.y) 
