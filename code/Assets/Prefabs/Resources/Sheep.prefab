@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
   - 60: {fileID: 6000000}
+  - 122: {fileID: 12200000}
   m_Layer: 9
   m_Name: Sheep
   m_TagString: Untagged
@@ -436,6 +437,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingForward: 1
+--- !u!122 &12200000
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279433489
+  m_Size: 5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -18,18 +18,11 @@ public class GameArea {
 		AreaObject areaObj = gameAreaTarget.GetComponent<AreaObject>();
 		areaObj.gameArea = this;
 
-		for (int i=0; i<Random.Range (8,10); i++) {
+		for (int i=0; i<Random.Range (5,10); i++) {
 			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("Rabbit"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
 			areaObj = bad.GetComponent<AreaObject>();
 			areaObj.gameArea = this;
 			AddBadObject(bad);
-		}
-
-		for (int i=0; i<Random.Range (8,10); i++) {
-			GameObject good = GameObject.Instantiate (Resources.Load<GameObject>("Sheep"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
-			areaObj = good.GetComponent<AreaObject>();
-			areaObj.gameArea = this;
-			AddGoodObject(good);
 		}
 
 		area.PlayerEntered += delegate(Vector3 position) {

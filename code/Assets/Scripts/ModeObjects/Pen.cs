@@ -7,7 +7,8 @@ public class Pen : AreaObject {
 	{
 		Sheep s = other.gameObject.GetComponent<Sheep> ();
 		if (s != null && !s.isInRegion && s.gameArea == Player.player.gameArea) {
-			Debug.Log ("COLLIDED SHEEP");
+			UnityEngine.Behaviour b = s.GetComponent("Halo") as UnityEngine.Behaviour;
+			b.enabled = true;
 			Game.game.points++;
 			s.isInRegion = true;
 		}
