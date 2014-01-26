@@ -19,8 +19,8 @@ public delegate void AreaWallDelegate(int wall_id, Vector3 start, Vector3 end);
 
 public class Area
 {
-	public static float max_radius = 50.0f;
-	public static float min_radius = 20.0f;
+	public static float max_radius = 30.0f;
+	public static float min_radius = 15.0f;
 	public static float max_radius_variance = 1.5f;
 	public static float min_radius_variance = 0.5f;
 	

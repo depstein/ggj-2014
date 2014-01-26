@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class LevelManager
 {
-	public static float grid_size = Area.max_radius * 5f;
+	public static int grid_count = 4;
+	public static float grid_size = Area.max_radius * 3f;
 	
 	public void AddArea(Vector3 position)
 	{
@@ -57,8 +58,6 @@ public class LevelManager
 
 		wall_id = result;
 	}
-
-	public static int grid_count = 4;
 
 	public LevelManager()
 	{
