@@ -16,7 +16,7 @@ public class Shepherd : Profession {
 		_player = GetComponent <Player> ();
 		_mouth = transform.Find("body/front/mouth");
 		
-		_player.PutOnHat(Resources.Load<GameObject>("Archer Hat"));
+		_player.PutOnHat(Resources.Load<GameObject>("shepherd-staff"));
 		_animatedCharacter = GetComponent<AnimatedCharacter>();
 	}
 	
