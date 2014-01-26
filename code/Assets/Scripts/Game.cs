@@ -39,7 +39,7 @@ public class Game : MonoBehaviour {
 		}
 
 		if (hatTimer <= 0) {
-			Player.player.GetComponent<Profession>().gameArea.AddRandomHat();
+			Player.player.gameArea.AddRandomHat();
 			hatTimer = HATS_EVERY;
 		}
 	}
