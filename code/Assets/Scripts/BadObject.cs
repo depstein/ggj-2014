@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BadObject : MonoBehaviour {
-	// Use this for initialization
-	protected virtual void Start () {
-		GameArea.gameArea.AddBadObject (this.gameObject);
-	}
+public class BadObject : AreaObject {
 
 	void OnDestroy() {
-		GameArea.gameArea.RemoveBadObject (this.gameObject);
+		gameArea.RemoveBadObject (this.gameObject);
 	}
 }

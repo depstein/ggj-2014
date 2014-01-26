@@ -7,7 +7,7 @@ public class Rabbit : BadObject {
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
-		target = GameArea.gameArea.gameAreaTarget.transform.position;
+		target = gameArea.gameAreaTarget.transform.position;
 	}
 	
 	// Update is called once per frame

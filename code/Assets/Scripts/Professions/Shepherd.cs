@@ -35,7 +35,7 @@ public class Shepherd : Profession {
 	void Shout()
 	{
 
-		foreach (GameObject obj in GameArea.gameArea.goodObjects) {
+		foreach (GameObject obj in gameArea.goodObjects) {
 			Vector3 diff = obj.transform.position - transform.position;
 			if (diff.magnitude < 5)
 			{
