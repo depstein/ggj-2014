@@ -1618,7 +1618,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.27050877
+      value: -2.99486637
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1640,6 +1640,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+      propertyPath: handParent
+      value: 
+      objectReference: {fileID: 292705142}
+    - target: {fileID: 11400000, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+      propertyPath: beardParent
+      value: 
+      objectReference: {fileID: 1058535118}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
   m_RootGameObject: {fileID: 1407014324}
@@ -5151,6 +5159,32 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5aefb647527694b9686922aeb9b68584, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1058535117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100012, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1058535118}
+  m_Layer: 8
+  m_Name: BeardLocator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1058535118
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400012, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1058535117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.01648283, y: .0439999104, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1673853382}
 --- !u!1 &1081279516
 GameObject:
   m_ObjectHideFlags: 0
@@ -6933,6 +6967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseDirection: {x: 0, y: 0, z: 0}
   hatParent: {fileID: 370627217}
+  handParent: {fileID: 292705142}
+  beardParent: {fileID: 1058535118}
 --- !u!61 &1407014327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6983,7 +7019,7 @@ Transform:
   m_PrefabInternal: {fileID: 345493653}
   m_GameObject: {fileID: 1407014324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.09736061, y: -2.27050877, z: 0}
+  m_LocalPosition: {x: 2.09736061, y: -2.99486637, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 398721937}
@@ -8066,6 +8102,7 @@ Transform:
   - {fileID: 2094072994}
   - {fileID: 213050122}
   - {fileID: 1159240004}
+  - {fileID: 1058535118}
   m_Father: {fileID: 398721937}
 --- !u!1 &1676754003
 GameObject:
