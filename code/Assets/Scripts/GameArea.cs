@@ -14,19 +14,33 @@ public class GameArea {
 		goodObjects = new List<GameObject> ();
 		badObjects = new List<GameObject> ();
 
+		gameAreaTarget = GameObject.Instantiate (Resources.Load<GameObject>("Objective"), area.GetOriginLocation(), Quaternion.identity) as GameObject;
+		AreaObject areaObj = gameAreaTarget.GetComponent<AreaObject>();
+		areaObj.gameArea = this;
+
 		for (int i=0; i<Random.Range (8,10); i++) {
 			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("BadObject"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
-			AreaObject areaObj = bad.GetComponent<AreaObject>();
+			areaObj = bad.GetComponent<AreaObject>();
 			areaObj.gameArea = this;
 			AddBadObject(bad);
 		}
 
 		for (int i=0; i<Random.Range (8,10); i++) {
 			GameObject good = GameObject.Instantiate (Resources.Load<GameObject>("GoodObject"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
-			AreaObject areaObj = good.GetComponent<AreaObject>();
+			areaObj = good.GetComponent<AreaObject>();
 			areaObj.gameArea = this;
 			AddGoodObject(good);
 		}
+
+		area.PlayerEntered += delegate(Vector3 position) {
+			Player.player.gameArea = this;
+				};
+		area.PlayerExisted += delegate(Vector3 position) {
+			if(Player.player.gameArea == this)
+			{
+				Player.player.gameArea = null;
+			}
+				};
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)

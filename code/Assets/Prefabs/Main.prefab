@@ -40,6 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTemplate: {fileID: 100004, guid: 42fe3b2bbcda94d858f619b86cbbc020, type: 2}
   WallTemplate: {fileID: 100000, guid: 51b328ea56d3f73409e5c7fa38ec546d, type: 2}
+  TreeTemplate: {fileID: 100000, guid: b582724905b64b74aa1183b02cf1daf2, type: 2}
   DebugMaterialTemplate: {fileID: 2100000, guid: 5994b43f21d484745abad77193e610f8,
     type: 2}
 --- !u!1001 &100100000

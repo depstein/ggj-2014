@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : AreaObject {
 	public static Player player;
 
 	private Vector2 speed = new Vector2(10, 10);

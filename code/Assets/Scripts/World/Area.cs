@@ -110,7 +110,7 @@ public class Area : IArea
 				var distance_along = (angle - this_angle) / (next_angle - this_angle);
 				var edge = before + distance_along * (after - before);
 				var offset = edge - position;
-				result = position + Random.value * (offset - new Vector3(0.5f, 0.5f, 0.0f));
+				result = position + Random.value * (offset - new Vector3(2.5f, 2.5f, 0.0f));
 				break;
 			}
 		}
