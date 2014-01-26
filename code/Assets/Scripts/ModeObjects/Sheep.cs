@@ -10,8 +10,8 @@ public class Sheep : BadObject {
 	{
 	}
 
-	public virtual bool ShouldCheckForMove()
+	public override bool ShouldCheckForMove()
 	{
-		return !isInRegion;		
+		return !isInRegion;
 	}
 }
