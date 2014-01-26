@@ -38,23 +38,23 @@ public class BadObject : AreaObject {
 	// Update is called once per frame
 	public virtual void Update () 
 	{
-		if (ShouldCheckForMove() && (nextTime < 0 || nextTime <= Time.time)) {
-			if (sitting)
-			{
-				target = transform.position;
-				nextTime = Time.time + (0.75f + Random.value * 0.5f);
-			}
-			else
-			{
-				var direction = Random.onUnitSphere;
-				direction.z = 0;
-				direction.Normalize();
-				direction *= 3;
-				target = transform.position + direction;
-				nextTime = Time.time + (0.5f + Random.value * 0.25f);
-			}
-			sitting = !sitting;
-		}
+		if (ShouldCheckForMove () && (nextTime < 0 || nextTime <= Time.time)) {
+						if (sitting) {
+								target = transform.position;
+								nextTime = Time.time + (0.75f + Random.value * 0.5f);
+						} else {
+								var direction = Random.onUnitSphere;
+								direction.z = 0;
+								direction.Normalize ();
+								direction *= 3;
+								target = transform.position + direction;
+								nextTime = Time.time + (0.5f + Random.value * 0.25f);
+						}
+						sitting = !sitting;
+				} else if (!ShouldCheckForMove ()) {
+					target = transform.position;
+					nextTime = Time.time + (0.75f + Random.value * 0.5f);
+				}
 		
 		velocity = (target - transform.position);
 	}

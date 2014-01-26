@@ -14,7 +14,7 @@ public class GameArea {
 		goodObjects = new List<GameObject> ();
 		badObjects = new List<GameObject> ();
 
-		gameAreaTarget = GameObject.Instantiate (Resources.Load<GameObject>("Objective"), area.GetOriginLocation(), Quaternion.identity) as GameObject;
+		gameAreaTarget = GameObject.Instantiate (Resources.Load<GameObject>("Pen"), area.GetOriginLocation(), Quaternion.identity) as GameObject;
 		AreaObject areaObj = gameAreaTarget.GetComponent<AreaObject>();
 		areaObj.gameArea = this;
 
