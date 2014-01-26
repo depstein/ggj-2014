@@ -120,7 +120,7 @@ public class Area : IArea
 
 	public Vector3 GetOriginLocation ()
 	{
-		return position + RandomSpot ().normalized;
+		return position + RandomSpot ().normalized + Vector3.forward * 10;
 	}
 
 	public Vector3 RandomSpot()

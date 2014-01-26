@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pen : MonoBehaviour {
-
-	void Awake() {
-		//TODO: remove when we stop using MainScene.
-	}
+public class Pen : AreaObject {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{

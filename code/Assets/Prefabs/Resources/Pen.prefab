@@ -10,7 +10,8 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 60: {fileID: 6000000}
-  m_Layer: 9
+  - 114: {fileID: 11400000}
+  m_Layer: 4
   m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,8 +25,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.67030096, y: -8.51244736, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalPosition: {x: 2.67030096, y: -8.51244736, z: 1000}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!60 &6000000
@@ -115,6 +116,17 @@ PolygonCollider2D:
       - {x: .0599999987, y: -1.8499999}
       - {x: .209999993, y: -1.80999994}
       - {x: .439999998, y: -1.70999992}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 475f94a7db1132b459d40824d08389d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
