@@ -27,7 +27,7 @@ public class Enemy : BadObject {
 		fireTime -= Time.deltaTime;
 
 		if (fireTime <= 0) {
-			fireTime = FIRE_FREQUENCY;
+			fireTime = FIRE_FREQUENCY + Random.Range(-2, 2);
 			_projectileDirection = Player.player.gameObject.transform.position - gameObject.transform.position;
 			_projectileDirection.Normalize();
 			_animator.SetTrigger("Attack");
@@ -37,7 +37,7 @@ public class Enemy : BadObject {
 	void DoFire()
 	{
 		Vector3 offset = new Vector3(0.12f * _projectileDirection.x, 0.12f * _projectileDirection.y, _animatedCharacter.facingForward ? 0 : 1);
-		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
+		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * offset, transform.rotation);
 		projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _projectileDirection);
 		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
 	}

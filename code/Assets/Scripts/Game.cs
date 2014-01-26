@@ -71,8 +71,8 @@ public class Game : MonoBehaviour {
 
 	void SetDifficulty(float new_difficulty)
 	{
-		enemyTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.5f + (1f - new_difficulty) / 2));
-		rabbitTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.5f + (new_difficulty / 2)));
+		enemyTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.5f + (1f - new_difficulty) / 2) + Random.Range (-0.2f * SPAWN_ENEMY_EVERY, 0.2f * SPAWN_ENEMY_EVERY));
+		rabbitTimer.SetTimer (SPAWN_RABBIT_EVERY * (0.5f + (new_difficulty / 2)) + Random.Range (-0.2f * SPAWN_RABBIT_EVERY, 0.2f * SPAWN_RABBIT_EVERY));
 		difficulty = new_difficulty;
 	}
 
@@ -83,9 +83,9 @@ public class Game : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		enemyTimer = timers.Add (SPAWN_ENEMY_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnEnemy (); });
-		rabbitTimer = timers.Add (SPAWN_RABBIT_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnRabbit (); });
-		sheepTimer = timers.Add (SPAWN_SHEEP_EVERY, delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnSheep (); });
+		enemyTimer = timers.Add (SPAWN_ENEMY_EVERY + Random.Range (-0.1f * SPAWN_ENEMY_EVERY, 0.1f * SPAWN_ENEMY_EVERY), delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnEnemy (); });
+		rabbitTimer = timers.Add (SPAWN_RABBIT_EVERY + Random.Range (-0.1f * SPAWN_RABBIT_EVERY, 0.1f * SPAWN_RABBIT_EVERY), delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnRabbit (); });
+		sheepTimer = timers.Add (SPAWN_SHEEP_EVERY + Random.Range (-0.1f * SPAWN_SHEEP_EVERY, 0.1f * SPAWN_SHEEP_EVERY), delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnSheep (); });
 
 		SetDifficulty (0f);
 	}
