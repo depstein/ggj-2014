@@ -66,6 +66,14 @@ public class Area : IArea
 		}
 	}
 
+	public void PlayerStartsHere()
+	{
+		m_player_inside = true;
+		if (PlayerEntered != null)
+			PlayerEntered (Player.player.gameObject.transform.position);
+	}
+
+
 	public void Load()
 	{
 		m_gameArea = new GameArea (this);
@@ -74,11 +82,31 @@ public class Area : IArea
 	public RemovedWall UseWall(int wall)
 	{
 		(m_entries [wall] as AreaEntry).create = false;
-		return new RemovedWall ()
+
+		var result = new RemovedWall ()
 		{
 			left = NodePosition(wall),
 			right = NodePosition(wall + 1)
 		};
+
+		var movement = Vector3.Cross (result.right - result.left, Vector3.back).normalized;
+		
+		var enter_detection = Wall.CreateDetector (result.left, result.right);
+		var exit_detection = Wall.CreateDetector (result.left + movement, result.right + movement);
+		enter_detection.PlayerHit += delegate(Vector3 position) {
+			if (m_player_inside) return;
+			m_player_inside = true;
+			if (PlayerEntered != null)
+				PlayerEntered(position);
+		};
+		exit_detection.PlayerHit += delegate(Vector3 position) {
+			if (!m_player_inside) return;
+			m_player_inside = false;
+			if (PlayerExisted != null)
+				PlayerExisted(position);
+		};
+
+		return result;
 	}
 
 	public Vector3 GetSpawnLocation ()
@@ -160,7 +188,8 @@ public class Area : IArea
 		
 		return remaining_angle / remaining_points;
 	}
-	
+
+	private bool m_player_inside = false;
 	private Vector3 m_position;
 	private int m_points;
 	private List<AreaEntry> m_entries = new List<AreaEntry>();
