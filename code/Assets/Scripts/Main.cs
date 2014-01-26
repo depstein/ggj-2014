@@ -23,7 +23,7 @@ public class Main : MonoBehaviour
 		var starting_area = WorldManager.worldManager.PickRandomArea ();
 
 		Player.player = (Instantiate (PlayerTemplate, starting_area.position, Quaternion.identity) as GameObject).GetComponent<Player>();
-		Player.player.gameArea = starting_area;
+		Player.player.gameArea = starting_area.gameArea;
 		Camera.camcorder = (GameObject.Find ("Camera") as GameObject).GetComponent<Camera>();
 	}
 }
