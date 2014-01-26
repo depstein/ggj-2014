@@ -22,6 +22,11 @@ public class WorldManager
 		}
 	}
 
+	public void OnThemeChanged()
+	{
+
+	}
+
 	public Area PickRandomArea()
 	{
 		return m_areas [Random.Range (0, m_areas.Count)];

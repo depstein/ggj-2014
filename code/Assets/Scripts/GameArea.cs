@@ -15,6 +15,11 @@ public class GameArea : MonoBehaviour {
 		badObjects = new List<GameObject> ();
 	}
 
+	public void AttachToArea(IArea area)
+	{
+		// TODO: implement
+	}
+
 	public void AddGoodObject(GameObject objectToBeAdded)
 	{
 		goodObjects.Add (objectToBeAdded);
