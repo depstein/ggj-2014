@@ -48,6 +48,7 @@ public class Player : MonoBehaviour {
 
 	public void PutOnHat(GameObject hatObj) {
 		GameObject hat = (GameObject)Instantiate (hatObj);
+		hat.collider2D.enabled = false;
 		hat.transform.parent = hatParent;
 		hat.transform.localPosition = hatObj.transform.localPosition;
 		hat.transform.localRotation = hatObj.transform.localRotation;

@@ -15,10 +15,13 @@ public class Hat : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.GetComponent<Player> () != null) {
-			switch(this.gameObject.name) {
+			Destroy(other.gameObject.GetComponent<Profession>());
+			switch(this.gameObject.name) { //TODO: this will fail when we start cloning things (aka making them dynamically)
 				case "Archer Hat":
 					other.gameObject.AddComponent<Archer>();
-					break;
+					GameArea.gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("archer-good-pickup"));
+					GameArea.gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Rabbit"));
+				    break;
 			}
 			Destroy (this.gameObject);
 		}

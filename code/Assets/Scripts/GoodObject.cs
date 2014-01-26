@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GoodObject : MonoBehaviour {
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		GameArea.gameArea.AddGoodObject (this.gameObject);
 	}
 

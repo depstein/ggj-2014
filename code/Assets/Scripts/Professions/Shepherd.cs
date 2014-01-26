@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shepherd : MonoBehaviour {
+public class Shepherd : Profession {
 	
 	private Animator _animator;
 	private Player _player;
@@ -34,6 +34,7 @@ public class Shepherd : MonoBehaviour {
 
 	void Shout()
 	{
+
 		foreach (GameObject obj in GameArea.gameArea.goodObjects) {
 			Vector3 diff = obj.transform.position - transform.position;
 			if (diff.magnitude < 5)
