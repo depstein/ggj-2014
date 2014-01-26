@@ -63,13 +63,17 @@ public class GameArea {
 		badObjects.Remove (objectToBeAdded);
 	}
 
-	public void SpawnEnemy()
+	public void SpawnX(string name)
 	{
-		GameObject enemy = GameObject.Instantiate (Resources.Load<GameObject>("Enemy"), myArea.GetSpawnLocation(), Quaternion.identity) as GameObject;
-		var areaObj = enemy.GetComponent<AreaObject>();
-		areaObj.gameArea = this;
-		AddBadObject(enemy);
+		GameObject obj = GameObject.Instantiate (Resources.Load<GameObject>(name), myArea.GetSpawnLocation(), Quaternion.identity) as GameObject;
+		var area_obj = obj.GetComponent<AreaObject>();
+		area_obj.gameArea = this;
+		AddBadObject(obj);
 	}
+	
+	public void SpawnEnemy() { SpawnX ("Enemy"); }
+	public void SpawnRabbit() { SpawnX ("Rabbit"); }
+	public void SpawnSheep() { SpawnX ("Sheep"); }
 
 	public void TurnGoodThingsTo(GameObject goodThing)
 	{

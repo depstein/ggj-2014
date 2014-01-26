@@ -34,5 +34,7 @@ public class Archer : Profession {
 		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
 		projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _projectileDirection);
 		projectile.rigidbody2D.velocity = 20 * _projectileDirection;
+
+		Game.game.PlayerFired ();
 	}
 }
