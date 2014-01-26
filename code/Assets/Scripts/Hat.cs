@@ -22,6 +22,11 @@ public class Hat : MonoBehaviour {
 					GameArea.gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("archer-good-pickup"));
 					GameArea.gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Rabbit"));
 				    break;
+				case "shepherd-staff":
+					other.gameObject.AddComponent<Shepherd>();
+					GameArea.gameArea.TurnGoodThingsTo(Resources.Load<GameObject>("sheep"));
+					//GameArea.gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Rabbit"));
+					break;
 			}
 			Destroy (this.gameObject);
 		}
