@@ -78,7 +78,7 @@ public class WorldManager
 		}
 	}
 
-	public void OnThemeChanged()
+	public void OnThemeChanged(PlayerMode newTheme)
 	{
 
 	}

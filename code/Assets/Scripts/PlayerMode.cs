@@ -25,6 +25,7 @@ public class WorldMode {
 			gameArea.TurnBadThingsTo(Resources.Load<GameObject>("Water"));
 			break;
 		}
+		WorldManager.worldManager.OnThemeChanged (newMode);
 		mode = newMode;
 	}
 }
