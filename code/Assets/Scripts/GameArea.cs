@@ -2,17 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GameArea : MonoBehaviour {
+public class GameArea {
 	
 	public static GameArea gameArea;
 	public GameObject gameAreaTarget;
 	public List<GameObject> goodObjects;
 	public List<GameObject> badObjects;
 
-	void Awake() {
-		gameArea = this;
+	public GameArea(IArea area) {
 		goodObjects = new List<GameObject> ();
 		badObjects = new List<GameObject> ();
+
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)
@@ -39,10 +39,10 @@ public class GameArea : MonoBehaviour {
 	{
 		List<GameObject> newGood = new List<GameObject> ();
 		foreach (GameObject obj in goodObjects) {
-			GameObject good = (GameObject)Instantiate (goodThing);
+			GameObject good = GameObject.Instantiate (goodThing) as GameObject;
 			good.transform.position = obj.transform.position;
 			good.transform.rotation = obj.transform.rotation;
-			Destroy (obj);
+			GameObject.Destroy (obj);
 		}
 	}
 
@@ -50,19 +50,10 @@ public class GameArea : MonoBehaviour {
 	{
 		List<GameObject> newBad = new List<GameObject> ();
 		foreach (GameObject obj in badObjects) {
-			GameObject bad = (GameObject)Instantiate (badThing);
+			GameObject bad = GameObject.Instantiate (badThing) as GameObject;
 			bad.transform.position = obj.transform.position;
 			bad.transform.rotation = obj.transform.rotation;
-			Destroy (obj);
+			GameObject.Destroy (obj);
 		}
-	}
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 }

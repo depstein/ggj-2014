@@ -17,7 +17,7 @@ public class RemovedWall
 
 public delegate void AreaWallDelegate(int wall_id, Vector3 start, Vector3 end);
 
-public class Area
+public class Area : IArea
 {
 	public static float max_radius = 30.0f;
 	public static float min_radius = 15.0f;
@@ -33,16 +33,9 @@ public class Area
 	public static float total_angle = 360f;
 
 	public Vector3 position { get { return m_position; } } 
-	
-	public RemovedWall UseWall(int wall)
-	{
-		(m_entries [wall] as AreaEntry).create = false;
-		return new RemovedWall ()
-		{
-			left = NodePosition(wall),
-			right = NodePosition(wall + 1)
-		};
-	}
+
+	public event PlayerEnteredDelegate PlayerEntered;
+	public event PlayerExitedDelegate PlayerExisted;
 	
 	public Area(Vector3 position)
 	{
@@ -71,6 +64,31 @@ public class Area
 		}
 	}
 
+	public void Load()
+	{
+		m_gameArea = new GameArea (this);
+	}
+	
+	public RemovedWall UseWall(int wall)
+	{
+		(m_entries [wall] as AreaEntry).create = false;
+		return new RemovedWall ()
+		{
+			left = NodePosition(wall),
+			right = NodePosition(wall + 1)
+		};
+	}
+
+	public Vector3 GetSpawnLocation ()
+	{
+		return RandomSpot ();
+	}
+
+	public Vector3 GetOriginLocation ()
+	{
+		return position + RandomSpot ().normalized;
+	}
+
 	public Vector3 RandomSpot()
 	{
 		Vector3 result = Vector3.zero;
@@ -92,7 +110,7 @@ public class Area
 				var distance_along = (angle - this_angle) / (next_angle - this_angle);
 				var edge = before + distance_along * (after - before);
 				var offset = edge - position;
-				result = position + Random.value * (offset);
+				result = position + Random.value * (offset - new Vector3(0.5f, 0.5f, 0.0f));
 				break;
 			}
 		}
@@ -144,4 +162,5 @@ public class Area
 	private Vector3 m_position;
 	private int m_points;
 	private List<AreaEntry> m_entries = new List<AreaEntry>();
+	private GameArea m_gameArea;
 }
