@@ -264,8 +264,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400032}
   - 212: {fileID: 21200018}
-  - 61: {fileID: 6100000}
   - 114: {fileID: 11400004}
+  - 61: {fileID: 6100000}
   m_Layer: 13
   m_Name: Quiver
   m_TagString: Untagged
@@ -302,7 +302,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.09736061, y: -2.99486637, z: 0}
+  m_LocalPosition: {x: 198.059387, y: 42.9999924, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}

@@ -7,6 +7,7 @@ public class Archer : Profession {
 	private Transform _mouth;
 	public GameObject whatIFire;
 	private Vector3 _projectileDirection;
+	private bool fired = false;
 	private float cast_expire = 0;
 	private float cast_expire_length = 2f;
 
@@ -85,23 +86,29 @@ public class Archer : Profession {
 	{
 		if (Input.GetMouseButtonDown (0)) {
 			_projectileDirection = _player.mouseDirection.normalized;
+			fired = true;
 			_animator.SetTrigger("Attack");
 		}
 	}
 
 	void DoFire()
 	{
-		Vector3 offset = new Vector3(0.12f * _projectileDirection.x, 0.12f * _projectileDirection.y, _animatedCharacter.facingForward ? 0 : 1);
-		var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
-		projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _projectileDirection);
-		projectile.rigidbody2D.velocity = 30f * _projectileDirection;
-
-		if (do_curve)
+		if (fired) 
 		{
-			projectile.GetComponent<Projectile> ().curve = curve;
-			do_curve = false;
-		}
+			fired = false;
+			Vector3 offset = new Vector3(0.12f * _projectileDirection.x, 0.12f * _projectileDirection.y, _animatedCharacter.facingForward ? 0 : 1);
+			var projectile = (GameObject)Instantiate (whatIFire, _mouth.position + 0.5f * _projectileDirection, transform.rotation);
+			projectile.transform.rotation = Quaternion.FromToRotation(Vector3.up, _projectileDirection);
+			projectile.rigidbody2D.velocity = 30f * _projectileDirection;
 
-		Game.game.PlayerFired ();
+			Game.game.PlayerFired ();
+			if (do_curve)
+			{
+				projectile.GetComponent<Projectile> ().curve = curve;
+				do_curve = false;
+			}
+
+			Game.game.PlayerFired ();
+		}
 	}
 }

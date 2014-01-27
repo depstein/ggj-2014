@@ -34,7 +34,7 @@ public class Player : AreaObject {
 		gameObject.AddComponent<Archer> ();
 
 
-		GameObject hatObj = (GameObject)Resources.Load ("ArcherHat");
+		GameObject hatObj = (GameObject)Resources.Load ("WizardHat");
 		GameObject beardObj = (GameObject)Resources.Load ("ShepherdBeard");
 		GameObject handObj = (GameObject)Resources.Load ("ShepherdStaff");
 
