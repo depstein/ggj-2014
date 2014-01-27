@@ -56,31 +56,36 @@ public class Game : MonoBehaviour {
 	public const float SPAWN_ENEMY_EVERY = 10f;
 	public const float SPAWN_RABBIT_EVERY = 10f;
 	public const float SPAWN_SHEEP_EVERY = 10f;
-	
+
 	public int health;
 	public float difficulty = 0.0f;
-	public int points;
 	
 	public ITimerControl enemyTimer;
 	public ITimerControl rabbitTimer;
 	public ITimerControl sheepTimer;
 	public ITimerControl reduceDifficultyTimer;
+	public ITimerControl pointTimer;
 
 	public Timers timers = new Timers();
 
-	void Awake() { game = this; health = 10; }
+	void Awake() { game = this; health = 60; }
+
+	public void ChangeDifficulty(float byAmt)
+	{
+		SetDifficulty (difficulty += byAmt);
+	}
 
 	void SetDifficulty(float new_difficulty)
 	{
 		new_difficulty = Mathf.Max (Mathf.Min (new_difficulty, 1f), 0);
-		enemyTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.5f + (1f - new_difficulty) / 2) + Random.Range (-0.2f * SPAWN_ENEMY_EVERY, 0.2f * SPAWN_ENEMY_EVERY));
-		rabbitTimer.SetTimer (SPAWN_RABBIT_EVERY * (0.5f + (new_difficulty / 2)) + Random.Range (-0.2f * SPAWN_RABBIT_EVERY, 0.2f * SPAWN_RABBIT_EVERY));
+		enemyTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.8f + (1f - new_difficulty) / 2) + Random.Range (-0.2f * SPAWN_ENEMY_EVERY, 0.2f * SPAWN_ENEMY_EVERY));
+		rabbitTimer.SetTimer (SPAWN_RABBIT_EVERY * (0.8f + (new_difficulty / 2)) + Random.Range (-0.2f * SPAWN_RABBIT_EVERY, 0.2f * SPAWN_RABBIT_EVERY));
 		difficulty = new_difficulty;
 	}
 
 	public void PlayerFired()
 	{
-		SetDifficulty (difficulty + 0.01f);
+		SetDifficulty (difficulty + 0.02f);
 	}
 
 	// Use this for initialization
@@ -89,18 +94,22 @@ public class Game : MonoBehaviour {
 		rabbitTimer = timers.Add (SPAWN_RABBIT_EVERY + Random.Range (-0.1f * SPAWN_RABBIT_EVERY, 0.1f * SPAWN_RABBIT_EVERY), delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnRabbit (); });
 		sheepTimer = timers.Add (SPAWN_SHEEP_EVERY + Random.Range (-0.1f * SPAWN_SHEEP_EVERY, 0.1f * SPAWN_SHEEP_EVERY), delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnSheep (); });
 		reduceDifficultyTimer = timers.Add (1f, delegate() {
-			Debug.Log ("diff: "+difficulty);
 						SetDifficulty (difficulty - .001f);
+			health -= 1;
+						if (health <= 0)
+			{
+				Lost ();
+			}
 				});
+
 		SetDifficulty (0f);
 	}
 
 	void OnGUI () {
 		GUI.TextField (new Rect (10f, 50f, 50f, 15f), "Health:", GUIStyle.none);
 		GUI.Box (new Rect (60f, 50f, 15f + health * 4f, 15f), "");
-		GUI.TextField (new Rect (10f, 80f, 70f, 20f), "Difficulty:", GUIStyle.none);
-		GUI.Box (new Rect (80f, 80f, 15f + difficulty * 120f, 15f), "");
-		GUI.TextField (new Rect (10f, 110f, 50f, 20f), "Points: " + points, GUIStyle.none);
+		GUI.TextField (new Rect (10f, 80f, 70f, 20f), "Violence Level:", GUIStyle.none);
+		GUI.Box (new Rect (100f, 80f, 15f + difficulty * 120f, 15f), "");
 	}
 
 	void Lost()
