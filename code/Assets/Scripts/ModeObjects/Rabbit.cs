@@ -5,7 +5,7 @@ public class Rabbit : BadObject {
 	// Use this for initialization
 	void Start () {
 		distanceToMove = 10;
-		timeWaitScale = .6f;
+		timeWaitScale = 1.5f;
 	}
 
 	// Update is called once per frame
