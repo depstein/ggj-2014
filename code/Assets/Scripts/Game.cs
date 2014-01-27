@@ -55,9 +55,10 @@ public class Game : MonoBehaviour {
 	public static Game game;
 	public const float SPAWN_ENEMY_EVERY = 10f;
 	public const float SPAWN_RABBIT_EVERY = 10f;
-	public const float SPAWN_SHEEP_EVERY = 10f;
+	public const float SPAWN_SHEEP_EVERY = 8f;
 
 	public int health;
+	public int points;
 	public float difficulty = 0.0f;
 	
 	public ITimerControl enemyTimer;
@@ -78,7 +79,7 @@ public class Game : MonoBehaviour {
 	void SetDifficulty(float new_difficulty)
 	{
 		new_difficulty = Mathf.Max (Mathf.Min (new_difficulty, 1f), 0);
-		enemyTimer.SetTimer (SPAWN_ENEMY_EVERY * (0.8f + (1f - new_difficulty) / 2) + Random.Range (-0.2f * SPAWN_ENEMY_EVERY, 0.2f * SPAWN_ENEMY_EVERY));
+		enemyTimer.SetTimer (SPAWN_ENEMY_EVERY * (1.3f + (1f - new_difficulty) / 2) + Random.Range (-0.2f * SPAWN_ENEMY_EVERY, 0.2f * SPAWN_ENEMY_EVERY));
 		rabbitTimer.SetTimer (SPAWN_RABBIT_EVERY * (0.8f + (new_difficulty / 2)) + Random.Range (-0.2f * SPAWN_RABBIT_EVERY, 0.2f * SPAWN_RABBIT_EVERY));
 		difficulty = new_difficulty;
 	}
@@ -96,6 +97,7 @@ public class Game : MonoBehaviour {
 		reduceDifficultyTimer = timers.Add (1f, delegate() {
 						SetDifficulty (difficulty - .001f);
 			health -= 1;
+			points++;
 						if (health <= 0)
 			{
 				Lost ();
@@ -110,6 +112,7 @@ public class Game : MonoBehaviour {
 		GUI.Box (new Rect (60f, 50f, 15f + health * 4f, 15f), "");
 		GUI.TextField (new Rect (10f, 80f, 70f, 20f), "Violence Level:", GUIStyle.none);
 		GUI.Box (new Rect (100f, 80f, 15f + difficulty * 120f, 15f), "");
+		GUI.TextField (new Rect (10f, 110, 70f, 20f), "Points: "+points, GUIStyle.none);
 	}
 
 	void Lost()
