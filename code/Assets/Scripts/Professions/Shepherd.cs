@@ -2,11 +2,17 @@
 using System.Collections;
 
 public class Shepherd : Profession {
+	GameObject whatIFire;
+	private Transform _mouth;
 	
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
 
+		_mouth = transform.Find("body/front/mouth");
+
+		whatIFire = (GameObject)Resources.Load("Shout", typeof(GameObject));
+		_animator.SetTrigger("Attack");
 	}
 	
 	// Update is called once per frame
@@ -43,6 +49,9 @@ public class Shepherd : Profession {
 						foreach (GameObject obj in _player.gameArea.goodObjects) {
 								ShoutAt (obj);
 						}
+						
+						_animator.SetTrigger("Attack");
+						Instantiate (whatIFire, _mouth.position, transform.rotation);
 				}
 	}
 }
