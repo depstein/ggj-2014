@@ -54,7 +54,7 @@ public class Game : MonoBehaviour {
 
 	public static Game game;
 	public const float SPAWN_ENEMY_EVERY = 10f;
-	public const float SPAWN_RABBIT_EVERY = 10f;
+	public const float SPAWN_RABBIT_EVERY = 8f;
 	public const float SPAWN_SHEEP_EVERY = 8f;
 
 	public int health;
@@ -95,7 +95,7 @@ public class Game : MonoBehaviour {
 		rabbitTimer = timers.Add (SPAWN_RABBIT_EVERY + Random.Range (-0.1f * SPAWN_RABBIT_EVERY, 0.1f * SPAWN_RABBIT_EVERY), delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnRabbit (); });
 		sheepTimer = timers.Add (SPAWN_SHEEP_EVERY + Random.Range (-0.1f * SPAWN_SHEEP_EVERY, 0.1f * SPAWN_SHEEP_EVERY), delegate() { if (Player.player.gameArea != null) Player.player.gameArea.SpawnSheep (); });
 		reduceDifficultyTimer = timers.Add (1f, delegate() {
-						SetDifficulty (difficulty - .001f);
+			SetDifficulty (difficulty - .001f);
 			health -= 1;
 			points++;
 						if (health <= 0)

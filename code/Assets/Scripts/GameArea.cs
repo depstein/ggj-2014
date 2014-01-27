@@ -19,7 +19,7 @@ public class GameArea {
 		AreaObject areaObj = gameAreaTarget.GetComponent<AreaObject>();
 		areaObj.gameArea = this;
 
-		for (int i=0; i<Random.Range (5,10); i++) {
+		for (int i=0; i<Random.Range (7,10); i++) {
 			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("Rabbit"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
 			areaObj = bad.GetComponent<AreaObject>();
 			areaObj.gameArea = this;
