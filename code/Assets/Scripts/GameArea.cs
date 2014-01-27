@@ -25,6 +25,13 @@ public class GameArea {
 			AddBadObject(bad);
 		}
 
+		for (int i=0; i<Random.Range (2,4); i++) {
+			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("Sheep"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
+			areaObj = bad.GetComponent<AreaObject>();
+			areaObj.gameArea = this;
+			AddBadObject(bad);
+		}
+
 		area.PlayerEntered += delegate(Vector3 position) {
 			Player.player.gameArea = this;
 				};
