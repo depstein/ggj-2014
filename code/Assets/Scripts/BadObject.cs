@@ -5,9 +5,15 @@ public class BadObject : AreaObject {
 
 	public bool sitting = false;
 	public float nextTime = -1;
-	
+	public int distanceToMove;
+	public float timeWaitScale = 1;
 	public Vector3 target;
 	public Vector3 velocity;
+
+	void Awake() { 
+		distanceToMove = 3;
+		timeWaitScale = 1;
+	}
 
 	void OnDestroy() {
 		gameArea.RemoveBadObject (this.gameObject);
@@ -45,14 +51,14 @@ public class BadObject : AreaObject {
 								var direction = Random.onUnitSphere;
 								direction.z = 0;
 								direction.Normalize ();
-								direction *= 3;
-								target = transform.position + direction;
-								nextTime = Time.time + (0.5f + Random.value * 0.25f);
+				direction *= distanceToMove;
+				target = transform.position + direction;
+				nextTime = Time.time + (0.5f + Random.value * 0.25f) * timeWaitScale;
 						}
 						sitting = !sitting;
 				} else if (!ShouldCheckForMove ()) {
 					target = transform.position;
-					nextTime = Time.time + (0.75f + Random.value * 0.5f);
+			nextTime = Time.time + (0.75f + Random.value * 0.5f) * timeWaitScale;
 				}
 		
 		velocity = (target - transform.position);

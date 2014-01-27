@@ -8,6 +8,7 @@ public class GameArea {
 	public List<GameObject> goodObjects;
 	public List<GameObject> badObjects;
 	public IArea myArea;
+	private float spawnSheepFor = 1f;
 
 	public GameArea(IArea area) {
 		myArea = area;
@@ -25,8 +26,16 @@ public class GameArea {
 			AddBadObject(bad);
 		}
 
+		for (int i=0; i<Random.Range (2,4); i++) {
+			GameObject bad = GameObject.Instantiate (Resources.Load<GameObject>("Sheep"), area.GetSpawnLocation(), Quaternion.identity) as GameObject;
+			areaObj = bad.GetComponent<AreaObject>();
+			areaObj.gameArea = this;
+			AddBadObject(bad);
+		}
+
 		area.PlayerEntered += delegate(Vector3 position) {
-			Player.player.gameArea = this;
+					Player.player.gameArea = this;
+					this.spawnSheepFor = 3f;
 				};
 		area.PlayerExisted += delegate(Vector3 position) {
 			if(Player.player.gameArea == this)
@@ -34,6 +43,10 @@ public class GameArea {
 				Player.player.gameArea = null;
 			}
 				};
+	}
+
+	public void playerHere() {
+		spawnSheepFor -= Time.deltaTime/30f;
 	}
 
 	public void AddGoodObject(GameObject objectToBeAdded)
@@ -66,7 +79,11 @@ public class GameArea {
 	
 	public void SpawnEnemy() { SpawnX ("Enemy"); }
 	public void SpawnRabbit() { SpawnX ("Rabbit"); }
-	public void SpawnSheep() { SpawnX ("Sheep"); }
+	public void SpawnSheep() {
+				if (Random.value < spawnSheepFor) {
+						SpawnX ("Sheep");
+				}
+		}
 
 	public void TurnGoodThingsTo(GameObject goodThing)
 	{

@@ -50,12 +50,18 @@ public class Player : AreaObject {
 		_hand.transform.parent = handParent;
 		_hand.transform.localPosition = handObj.transform.localPosition;
 		_hand.transform.localRotation = handObj.transform.localRotation;
+
+		renderer.sortingLayerName = "Foreground";
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		SetMovementDirection();
+
+		if (gameArea != null) {
+			gameArea.playerHere();
+		}
 	}
 
 	void FixedUpdate()
