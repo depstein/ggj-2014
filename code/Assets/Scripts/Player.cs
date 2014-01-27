@@ -74,15 +74,8 @@ public class Player : AreaObject {
 		var vertical = Input.GetAxis ("Vertical") * speed.y;
 
 		direction = new Vector2 (horizontal, vertical);
-		
-		var camera = Camera.camcorder.gameObject.camera;
-		
-		var screen = camera.WorldToScreenPoint (transform.position);
-		
-		var mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screen.z);
-		
-		mouseDirection = mouse - screen;
-		mouseDirection.Normalize ();
+
+		mouseDirection = (Mouse.position - transform.position).normalized;
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
