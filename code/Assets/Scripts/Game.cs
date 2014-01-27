@@ -112,7 +112,7 @@ public class Game : MonoBehaviour {
 		GUI.Box (new Rect (60f, 50f, 15f + health * 4f, 15f), "");
 		GUI.TextField (new Rect (10f, 80f, 70f, 20f), "Violence Level:", GUIStyle.none);
 		GUI.Box (new Rect (100f, 80f, 15f + difficulty * 120f, 15f), "");
-		GUI.TextField (new Rect (10f, 110, 70f, 20f), "Points: "+points, GUIStyle.none);
+		GUI.TextField (new Rect (10f, 110, 70f, 20f), "Time alive: "+points + " seconds", GUIStyle.none);
 	}
 
 	void Lost()

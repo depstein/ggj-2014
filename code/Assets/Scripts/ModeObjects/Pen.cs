@@ -10,7 +10,7 @@ public class Pen : AreaObject {
 			UnityEngine.Behaviour b = s.GetComponent("Halo") as UnityEngine.Behaviour;
 			b.enabled = true;
 			Game.game.ChangeDifficulty(-.01f);
-			Game.game.health += 20;
+			Game.game.health += 10;
 			s.isInRegion = true;
 		}
 	}
