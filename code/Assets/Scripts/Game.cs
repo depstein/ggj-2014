@@ -115,6 +115,9 @@ public class Game : MonoBehaviour {
 		GUI.TextField (new Rect (10f, 110, 70f, 20f), "Time alive: "+points + " seconds", GUIStyle.none);
 	}
 
+#if UNITY_WEBPLAYER
+	public static string webplayerQuitURL = "http://depstein.net/games/index.html";
+#endif
 	void Lost()
 	{
 		#if UNITY_EDITOR
